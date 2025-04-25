@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sản phẩm - Mỹ phẩm Hàn Nhật</title>
+  <link rel="stylesheet" href="mipham-style.css">
+  <style>
+    /* Reset & cơ bản */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background: #f4f4f4; color: #333; }
+    .container { width: 90%; max-width: 1200px; margin: auto; }
+    a { text-decoration: none; color: inherit; }
+
+    /* Header */
+    header { background: #fff; padding: 10px 0; border-bottom: 1px solid #ddd; }
+    .header-top { display: flex; align-items: center; justify-content: space-between; }
+    .logo img { height: 50px; }
+    nav { margin-top: 10px; }
+    nav ul { list-style: none; display: flex; justify-content: center; }
+    nav ul li { margin: 0 15px; }
+    nav ul li a { font-weight: bold; }
+
+    /* Products Section */
+    .products { padding: 40px 0; }
+    .products h1 { text-align: center; margin-bottom: 20px; font-size: 2em; }
+    .products-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .product-card {
+      width: 23%;
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .product-card:hover { transform: translateY(-5px); }
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .product-card h3 { margin: 10px 0; font-size: 1.2em; }
+    .product-card p { color: #e74c3c; font-weight: bold; }
+
+
+  </style>
+<header>
+  <div class="container">
+    <div class="header-top">
+      <div class="logo">
+        <a href="index.html">
+          <!-- Logo online: sử dụng placeholder -->
+          <img src="https://img.pikbest.com/png-images/cosmetic-and-skincare-brand-logo-graphic-element_1482071.png!f305cw" alt="Logo">
+        </a>
+      </div>
+      <div class="search">
+        <input type="text" placeholder="Tìm kiếm sản phẩm...">
+      </div>
+      <div class="user-tools">
+        <!-- Icon giỏ hàng & tài khoản -->
+        <a href="#"><img src="https://cdn0.iconfinder.com/data/icons/typicons-2/24/shopping-cart-64.png" alt="Giỏ hàng"></a>
+        <a href="#"><img src="https://cdn4.iconfinder.com/data/icons/glyphs/24/icons_user-256.png" alt="Tài khoản"></a>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Trang chủ</a></li>
+        <li><a href="category.html">Danh mục</a></li>
+        <li><a href="news.html">Tin tức</a></li>
+        <li><a href="contact.html">Liên hệ</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <!-- Main Content: Danh sách sản phẩm -->
+  <main class="container">
+    <section class="products">
+      <!-- Tiêu đề thay đổi theo danh mục -->
+      <h1 id="category-title">Sản phẩm</h1>
+      <div id="product-list" class="products-grid">
+        <!-- Các sản phẩm sẽ được chèn vào đây qua JavaScript -->
+      </div>
+    </section>
+  </main>
+
+
+
+  <!-- JavaScript: Hiển thị sản phẩm dựa trên tham số URL -->
+  <script>
+    // Dữ liệu sản phẩm theo danh mục
+    const productsData = {
+      kemduong: [
+        {
+          name: "Kem dưỡng ẩm Torriden",
+          price: "200,000₫",
+          image: "https://i.pinimg.com/736x/aa/37/8b/aa378b743f18b7fe2d319f560cf559c0.jpg",
+          link: "product-detail1.html"
+        },
+        {
+          name: "Kem dưỡng cho da nhạy cảm",
+          price: "220,000₫",
+          image: "https://th.bing.com/th/id/OIP.7AtuwVtvNQWoef_gGZPUlwHaEl?w=310&h=192&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+          link: "product-detail.html?id=2"
+        },
+        {
+          name: "Kem dưỡng Cerave",
+          price: "180,000₫",
+          image: "https://th.bing.com/th/id/OIP.21qj6DFgYz0lwyyFWvX2zgHaHa?w=212&h=212&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+          link: "product-detail.html?id=3"
+        },
+        {
+          name: "Kem dưỡng cấp ẩm phục hồi B5",
+          price: "520,000₫",
+          image: "https://file.hstatic.net/1000401262/file/kem-duong-la-roche-posay-lam-diu-ho-tro-phuc-hoi-da-1_1e950b68dd7e482191ad52e1458f2489_grande.jpg",
+          link: "product-detail.html?id=4"
+        },
+        {
+          name: "Kem dưỡng Some by mi",
+          price: "450,000₫",
+          image: "https://product.hstatic.net/1000006063/product/some_by_mi__new__copy_2_3c07b5e23eaa4b4daec108283618c36b_1024x1024.jpg",
+          link: "product-detail.html?id=5"
+        }
+      ],
+      sonmoi: [
+        {
+          name: "Son môi Merzy Watery Dew Tint",
+          price: "300,000₫",
+          image: "https://i.pinimg.com/736x/9b/a8/4e/9ba84e9ffe2fe66b19e4ed13a17b3a44.jpg",
+          link: "product-detail.html?id=3"
+        },
+        {
+          name: "Son môi Hàn Quốc Velvet Matte",
+          price: "280,000₫",
+          image: "https://www.bing.com/images/blob?bcid=r36MaV9PUTIItKvWIri6ie.KEguy.....40",
+          link: "product-detail.html?id=4"
+        }
+      ],
+      toner: [
+        {
+          name: "Toner Pad Mediheal",
+          price: "250,000₫",
+          image: "https://i.pinimg.com/736x/93/15/ad/9315adee3da3420ef4f7662c8979f2c9.jpg",
+          link: "product-detail.html?id=5"
+        },
+        {
+          name: "Toner dưỡng ẩm cho da",
+          price: "230,000₫",
+          image: "https://bloganchoi.com/wp-content/uploads/2024/03/nuoc-hoa-hong-manyo-bifida-biome-ampoule-toner-4.jpg",
+          link: "product-detail.html?id=6"
+        }
+      ]
+    };
+
+    // Hàm lấy tham số từ URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('cat');
+
+    // Đặt tiêu đề trang dựa trên danh mục
+    const categoryTitle = document.getElementById('category-title');
+    if (category === 'kemduong') {
+      categoryTitle.textContent = 'Sản phẩm Kem Dưỡng';
+    } else if (category === 'sonmoi') {
+      categoryTitle.textContent = 'Sản phẩm Son Môi';
+    } else if (category === 'toner') {
+      categoryTitle.textContent = 'Sản phẩm Toner';
+    } else {
+      categoryTitle.textContent = 'Sản phẩm';
+    }
+
+    // Hiển thị sản phẩm của danh mục tương ứng
+    const productList = document.getElementById('product-list');
+    if (category && productsData[category]) {
+      productsData[category].forEach(product => {
+        const productCard = document.createElement('div');
+        productCard.className = 'product-card';
+        productCard.innerHTML = `
+          <a href="${product.link}">
+            <img src="${product.image}" alt="${product.name}">
+            <h3>${product.name}</h3>
+          </a>
+          <p>Giá: ${product.price}</p>
+        `;
+        productList.appendChild(productCard);
+      });
+    } else {
+      productList.innerHTML = '<p>Không có sản phẩm nào.</p>';
+    }
+  </script>
+
+
+  
+  <footer>
+    <p>&copy; 2025 Mỹ phẩm Hàn Nhật. All rights reserved.</p>
+  </footer>
+</body>
+</html>
