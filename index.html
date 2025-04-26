@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Trang chủ - Mỹ phẩm Hàn Nhật</title>
+  <title>Trang chủ - Mỹ phẩm Hàn Nhật
+</title> 
   <!-- Liên kết CSS bên ngoài nếu có -->
   <link rel="stylesheet" href="mipham-style.css">
   
@@ -30,8 +31,25 @@
       </div>
       <nav>
         <ul>
-          <li><a href="index.html">Trang chủ</a></li>
-          <li><a href="category.html">Danh mục</a></li>
+          <li class="dropdown">
+              <a href="index.html">Trang chủ</a>
+              <div class="dropdown-content">
+    <a href="#danhmuc-sanpham">Danh mục sản phẩm</a>
+    <a href="#sanpham-noibat">Sản phẩm nổi bật</a>
+    <a href="#tintucmoi">Tin tức mới</a>
+    
+</li>
+         <li class="dropdown">
+              <a href="category.html">Danh mục</a>
+              <div class="dropdown-content">
+    <a href="products.html?cat=kemduong">Kem dưỡng 
+<img class="thumbnail" src="https://i.pinimg.com/736x/08/7a/4a/087a4acf6a269e73a4ad972a7d6068ad.jpg" alt="Kem dưỡng"></a>
+    <a href="products.html?cat=sonmoi">Son môi 
+<img class="thumbnail" src="https://i.pinimg.com/736x/27/37/a9/2737a9fbaa07ea9dd88c719a413e603c.jpg" alt="Son môi"></a>
+ <a href="products.html?cat=nuochoa">Toner
+<img class="thumbnail" src="https://i.pinimg.com/736x/84/63/ed/8463ed973cc26cbe84d2f33a8977a1b3.jpg" alt="Nước hoa"></a>
+  </div>
+          </li>
           <li><a href="news.html">Tin tức</a></li>
           <li><a href="contact.html">Liên hệ</a></li>
         </ul>
@@ -49,12 +67,23 @@
   <!-- New Banner (sẽ chuyển slider sau này) -->
   <section class="sub-banner">
     <img src="https://cdn.pixabay.com/photo/2020/04/02/05/19/beauty-4993470_640.jpg" alt="Banner mới">
-  </section>
-
+    <img src="https://japan.net.vn/images/uploads/2018/06/05/cac-loai-my-pham-nhat-ban.jpg" alt="Mĩ phẩm mới">
+     </section>
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.sub-banner img');
+    const totalSlides = slides.length
+    function showNextSlide() {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % totalSlides;
+      slides[currentSlide].classList.add('active');
+    }
+    setInterval(showNextSlide, 2000); 
+  </script> 
   <!-- Main Content -->
   <main class="container">
     <!-- Danh mục sản phẩm -->
-    <section class="categories">
+    <section id="danhmuc-sanpham" class="categories">
       <h2>Danh mục sản phẩm</h2>
       <div class="category-list">
         <div class="category-item">
@@ -82,8 +111,10 @@
     </section>
 
     <!-- Sản phẩm nổi bật -->
-    <section class="featured-products">
+    <section  id= "sanpham-noibat"  class="featured-products">
       <h2>Sản phẩm nổi bật</h2>
+<button class="slider-btn prev-btn">&#10094;</button>
+      <div class="slider-container">
       <div class="product-list">
         <div class="product-item">
           <a href="product-detail1.html">
@@ -118,11 +149,11 @@
           <p>Giá: 150,000₫</p>
         </div>
       </div>
+  </div>
+ <button class="slider-btn next-btn">&#10095;</button>
     </section>
-  </main>
-
     <!-- Tin tức mới -->
-    <section class="news-section">
+    <section id="tintucmoi" class="news-section">
       <h2>Tin tức mới</h2>
       <div class="news-list">
         <div class="news-item">
@@ -149,7 +180,20 @@
       </div>
     </section>
   </main>
-
+<script>
+    let index = 0;
+    function showSlide(n) {
+      const slides = document.querySelectorAll('.product-item');
+      const container = document.querySelector('.slider-container');
+      if (n >= slides.length - 2) index = 0;
+      else if (n < 0) index = slides.length - 3;
+      else index = n;
+      container.style.transform = `translateX(-${index * (100 / 3)}%)`;
+    }
+    document.querySelector('.next-btn').addEventListener('click', () => showSlide(index + 1));
+    document.querySelector('.prev-btn').addEventListener('click', () => showSlide(index - 1));
+    setInterval(() => showSlide(index + 1), 3000);
+  </script>
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Mỹ phẩm Hàn Nhật. All rights reserved.</p>
