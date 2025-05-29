@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Đăng nhập</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #d7e9f7; /* pastel xanh dương nhạt hơn */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-container {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      width: 400px;
+    }
+
+    h3 {
+      text-align: center;
+      margin: 18px 0 10px;
+      color: #4a90e2; /* xanh pastel đậm nhẹ */
+      font-weight: 700;
+    }
+
+    .form-group {
+      margin: 12px 0;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #33475b;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #a9c9f5;
+      border-radius: 8px;
+      font-size: 15px;
+      background-color: #f0f7ff;
+      color: #33475b;
+      transition: border-color 0.3s ease;
+    }
+    input:focus {
+      border-color: #7bb1f9;
+      outline: none;
+      background-color: #e4f0ff;
+    }
+
+    .btn {
+      padding: 12px;
+      background-color: #a9c9f5; /* xanh pastel nhẹ */
+      color: #1a3c72;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+      margin-top: 16px;
+      box-shadow: 0 2px 6px rgba(30, 87, 153, 0.3);
+      transition: background-color 0.3s ease;
+      font-weight: 600;
+    }
+
+    .btn:hover {
+      background-color: #7bb1f9;
+      color: #fff;
+    }
+
+    .social-login {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .social-btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: background-color 0.3s ease;
+    }
+
+    .google {
+  background: #f7c6c7; /* pastel hồng nhẹ cho Google */
+  color: #a94442;
+}
+.google:hover {
+  background: #f4a1a3;
+  color: #fff;
+}
+
+.facebook {
+  background: #a1c9f4; /* pastel xanh dương nhạt cho Facebook */
+  color: #1e3a72;
+}
+.facebook:hover {
+  background: #7aa8e8;
+  color: #fff;
+}
+
+
+    .register-link {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+      color: #33475b;
+    }
+
+    .register-link a {
+      color: #4a90e2;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .register-link a:hover {
+      text-decoration: underline;
+      color: #2e70d9;
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-container">
+  <div class="login-form" id="loginForm">
+    <h3>Đăng nhập</h3>
+
+    <div class="form-group">
+      <label for="loginPhone">Tên đăng nhập</label>
+      <input type="text" id="loginPhone" placeholder="Nhập tên đăng nhập">
+    </div>
+    <div class="form-group">
+      <label for="loginPass">Mật khẩu</label>
+      <input type="password" id="loginPass" placeholder="Nhập mật khẩu">
+    </div>
+
+    <button class="btn" onclick="loginFake()">Đăng nhập</button>
+
+    <div class="social-login">
+      <button class="social-btn google" onclick="loginWithGoogle()">🔴 Đăng nhập với Google</button>
+      <button class="social-btn facebook" onclick="loginWithFacebook()">🔵 Đăng nhập với Facebook</button>
+    </div>
+
+    <div class="register-link">
+      Chưa có tài khoản? <a href="register.html">Đăng ký</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const fakeUsers = JSON.parse(localStorage.getItem("fakeUsers") || '{}');
+
+  function saveSession(user) {
+    localStorage.setItem("loggedInUser", JSON.stringify(user));
+    window.location.href = "../index.html";
+  }
+
+  function showLogin() {
+    document.getElementById("loginPhone").value = "";
+    document.getElementById("loginPass").value = "";
+    alert("Bạn có thể đăng nhập bằng tài khoản vừa tạo.");
+  }
+
+  function loginFake() {
+  const phone = document.getElementById("loginPhone").value.trim();
+  const pass = document.getElementById("loginPass").value.trim();
+
+  if (fakeUsers[phone] && fakeUsers[phone] === pass) {
+    localStorage.setItem("isLoggedIn", "true"); // ghi trạng thái đã đăng nhập
+    window.location.href = "../index.html";
+  } else {
+    alert("❌ Sai tên đăng nhập hoặc mật khẩu.");
+  }
+}
+
+
+  function loginWithGoogle() {
+    const phone = "google_user";
+    const pass = "google123";
+    fakeUsers[phone] = pass;
+    localStorage.setItem("fakeUsers", JSON.stringify(fakeUsers));
+    alert(`🔴 Đăng nhập Google thành công!\nTài khoản: ${phone}\nMật khẩu: ${pass}`);
+    showLogin();
+  }
+
+  function loginWithFacebook() {
+    const phone = "facebook_user";
+    const pass = "facebook123";
+    fakeUsers[phone] = pass;
+    localStorage.setItem("fakeUsers", JSON.stringify(fakeUsers));
+    alert(`🔵 Đăng nhập Facebook thành công!\nTài khoản: ${phone}\nMật khẩu: ${pass}`);
+    showLogin();
+  }
+</script>
+
+</body>
+</html>

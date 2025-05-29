@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Đăng ký</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(145deg, #d4f1f9, #f0f6fb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .modal {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 10px 25px rgba(0, 153, 204, 0.2);
+      text-align: center;
+    }
+
+    h2 {
+      color: #4682B4;
+      margin-bottom: 25px;
+      font-size: 24px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid #cde5f5;
+      background-color: #f9fcfe;
+      margin-bottom: 15px;
+      font-size: 15px;
+      transition: border-color 0.3s;
+    }
+
+    .form-control:focus {
+      border-color: #87CEFA;
+      outline: none;
+    }
+
+    .btn {
+      background-color: #87CEFA;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .btn:hover {
+      background-color: #5dade2;
+      transform: scale(1.02);
+    }
+
+    small {
+      display: block;
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    a {
+      color: #1e90ff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="modal">
+    <h2>Đăng ký</h2>
+    <input type="tel" id="phone" placeholder="Số điện thoại" class="form-control">
+    <button class="form-control btn" onclick="sendOTP()">Gửi mã xác nhận</button>
+    <input type="text" id="otp" placeholder="Mã xác nhận" class="form-control">
+    <small id="fakeOtpHint" style="display:none;">Mã là: <b id="otpShow">123456</b></small>
+    <input type="password" id="password" placeholder="Mật khẩu" class="form-control">
+    <button class="form-control btn" onclick="registerFake()">Đăng ký</button>
+    <p>Đã có tài khoản? <a href="login.html">Đăng nhập</a></p>
+  </div>
+
+  <script>
+    let fakeOTP = "";
+    const fakeUsers = JSON.parse(localStorage.getItem("fakeUsers") || '{}');
+
+    function sendOTP() {
+      fakeOTP = Math.floor(100000 + Math.random() * 900000).toString();
+      document.getElementById('otpShow').innerText = fakeOTP;
+      document.getElementById('fakeOtpHint').style.display = 'block';
+      alert("✅ Mã OTP đã gửi (giả lập): " + fakeOTP);
+    }
+
+    function registerFake() {
+      const phone = document.getElementById("phone").value.trim();
+      const otp = document.getElementById("otp").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (!phone || !otp || !password) {
+        alert("❌ Vui lòng nhập đầy đủ thông tin.");
+        return;
+      }
+
+      if (otp !== fakeOTP) {
+        alert("❌ Mã xác nhận sai.");
+        return;
+      }
+
+      fakeUsers[phone] = password;
+      localStorage.setItem("fakeUsers", JSON.stringify(fakeUsers));
+      localStorage.setItem("loginType", "phone");
+      localStorage.setItem("loginPhone", phone);
+      alert("🎉 Đăng ký thành công! Vui lòng đăng nhập.");
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>
