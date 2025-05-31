@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elaria - Korean Beauty</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#1E3D59',secondary:'#4A90E2'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Montserrat', sans-serif;
+scroll-behavior: smooth;
+}
+.parallax {
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+.newsletter-input:focus {
+outline: none;
+border-color: #15334d;
+}
+</style>
+</head>
+<body class="bg-white">
+  <!-- Header -->
+  <header class="w-full bg-[#F0F8FF] shadow-sm">
+    <div class="max-w-screen-xl mx-auto flex items-center justify-between px-4 py-3">
+
+      <!-- Logo -->
+     <img src="elaria logo.jpg" alt="Eralia Logo" class="h-20 w-auto object-contain rounded-full">
+
+
+      <!-- Search bar -->
+      <div class="flex-1 mx-8">
+        <div class="relative">
+          <input
+            type="text"
+            placeholder="Nhập tên sản phẩm..."
+            class="w-full rounded-md bg-white py-2 px-4 text-sm focus:outline-none shadow-sm"
+          />
+          <button class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-600 hover:text-blue-600">
+            🔍
+          </button>
+        </div>
+      </div>
+
+      <!-- Icons -->
+<div class="flex items-center space-x-6 text-sm text-gray-700">
+  <div class="flex items-center space-x-1 hover:text-blue-700 cursor-pointer">
+    <span>👤</span><span>Account</span>
+  </div>
+  <div class="flex items-center space-x-1 hover:text-blue-700 cursor-pointer relative">
+    <span>🤍</span><span>Wishlist</span>
+    <span class="absolute -top-2 -right-3 bg-black text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+  </div>
+  <div class="flex items-center space-x-1 border border-yellow-400 rounded px-2 py-1 hover:bg-yellow-100 cursor-pointer relative">
+    <span>🛒</span><span>Cart</span>
+    <span class="absolute -top-2 -right-3 bg-black text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+  </div>
+</div>
+</div>
+
+<!-- Navigation menu -->
+<nav class="w-full bg-white shadow-sm">
+  <div class="max-w-screen-xl mx-auto px-4 py-2 flex space-x-6 text-sm font-semibold text-gray-800">
+    <a href="#" class="hover:text-blue-600">ABOUT</a>
+    <div class="relative group">
+      <a href="#" class="hover:text-blue-600">PRODUCTS </a>
+    </div>
+    <a href="#" class="hover:text-blue-600">BLOG</a>
+    <div class="relative group">
+      <a href="#" class="hover:text-blue-600">ORDER & PAYMENT </a>
+    </div>
+    <div class="relative group">
+      <a href="#" class="hover:text-blue-600">POLICIES </a>
+    </div>
+    <div class="relative group">
+      <a href="#" class="hover:text-blue-600">CONTACT </a>
+    </div>
+    <a href="#" class="hover:text-blue-600">LIVESTREAM</a>
+  </div>
+</nav>
+
+
+
+<!-- Hero Section -->
+<section
+  class="relative h-screen flex items-center justify-center overflow-hidden"
+  style="background-image: url('https://readdy.ai/api/search-image?query=luxury%20skincare%20products%20with%20blue%20packaging%2C%20minimalist%20aesthetic%2C%20clean%20beauty%20products%20on%20marble%20surface%20with%20soft%20blue%20lighting%2C%20high-end%20cosmetics%20arranged%20elegantly%2C%20professional%20product%20photography%20with%20soft%20shadows%2C%20beauty%20flatlay%20with%20hydrating%20serums%20and%20creams&width=1920&height=1080&seq=12345&orientation=landscape'); background-size: cover; background-position: center;">
+  <div class="absolute inset-0 bg-blue-100 bg-opacity-55"></div>
+  <div class="relative z-10 text-center px-4">
+    <h1 class="text-5xl md:text-6xl font-bold text-blue-900 drop-shadow-lg mb-6">
+      Elaria - Korean Beauty
+    </h1>
+    <p class="text-xl md:text-2xl text-blue-800 font-medium mb-8 max-w-2xl mx-auto drop-shadow">
+      Cùng bạn khám phá bí quyết làm đẹp từ Hàn Quốc
+    </p>
+    <button class="bg-blue-900 text-white px-8 py-3 text-lg font-semibold hover:bg-blue-700 transition-colors duration-300 rounded-full shadow-lg">
+      SHOP NOW
+    </button>
+  </div>
+</section>
+<!-- Danh mục sản phẩm-->
+ <section class="py-12 max-w-7xl mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center text-green-900 mb-3">Danh Mục Sản Phẩm</h2>
+    <p class="text-center text-gray-600 mb-10">
+      Khám phá các dòng sản phẩm chăm sóc da chất lượng cao, được chọn lọc kỹ càng<br>
+      để đáp ứng mọi nhu cầu làm đẹp của bạn
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Card -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <img src="https://bonita.vn/wp-content/uploads/2023/12/407939501_374394488384617_6282290810381174459_n.jpg" alt="Dưỡng Da" class="w-full h-44 object-cover">
+        <div class="text-center py-4">
+          <h3 class="font-semibold text-lg text-green-900">Dưỡng Da</h3>
+          <p class="text-gray-500 text-sm">32 sản phẩm</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <img src="https://m.media-amazon.com/images/I/71qapDwvo3L._SL1500_.jpg" alt="Trang Điểm" class="w-full h-44 object-cover">
+        <div class="text-center py-4">
+          <h3 class="font-semibold text-lg text-green-900">Trang Điểm</h3>
+          <p class="text-gray-500 text-sm">45 sản phẩm</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <img src="https://thienanco.vn/wp-content/uploads/2023/04/san-pham-cham-soc-toc-chuyen-nghiep-1904-01.jpg" alt="Chăm Sóc Tóc" class="w-full h-44 object-cover">
+        <div class="text-center py-4">
+          <h3 class="font-semibold text-lg text-green-900">Chăm Sóc Tóc</h3>
+          <p class="text-gray-500 text-sm">28 sản phẩm</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <img src="https://web.slabvn.com/FileUpload/Anh_phu_1@3x_f46b51be-ba63-46d3-9590-32eb930f9b81.jpg" alt="Chống Nắng" class="w-full h-44 object-cover">
+        <div class="text-center py-4">
+          <h3 class="font-semibold text-lg text-green-900">Chống Nắng</h3>
+          <p class="text-gray-500 text-sm">18 sản phẩm</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <img src="https://nhathuocphuongchinh.com/static/Product/sua-tam-goi-cho-be-lovin-skin.jpg" alt="Chăm Sóc Cơ Thể" class="w-full h-44 object-cover">
+        <div class="text-center py-4">
+          <h3 class="font-semibold text-lg text-green-900">Chăm Sóc Cơ Thể</h3>
+          <p class="text-gray-500 text-sm">24 sản phẩm</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <img src="https://myphamdep.vn/admincp/SANPHAM/HinhAnh/my-pham-mat-na-mediheal-nmf-han-quoc-20200826100540567.png" alt="Mặt Nạ" class="w-full h-44 object-cover">
+        <div class="text-center py-4">
+          <h3 class="font-semibold text-lg text-green-900">Mặt Nạ</h3>
+          <p class="text-gray-500 text-sm">20 sản phẩm</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <img src="https://bizweb.dktcdn.net/100/509/263/products/7a49cf059a86ac703ec55ae0033e4e3a.jpg?v=1708519854753" alt="Mỹ Phẩm Organic" class="w-full h-44 object-cover">
+        <div class="text-center py-4">
+          <h3 class="font-semibold text-lg text-green-900">Mỹ Phẩm Organic</h3>
+          <p class="text-gray-500 text-sm">15 sản phẩm</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <img src="https://nuochoa6scent.com/wp-content/uploads/2023/07/nuoc-hoa-nam-nu-cao-cap-premium-50ml.jpg" alt="Nước Hoa" class="w-full h-44 object-cover">
+        <div class="text-center py-4">
+          <h3 class="font-semibold text-lg text-green-900">Nước Hoa</h3>
+          <p class="text-gray-500 text-sm">22 sản phẩm</p>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- Products Section -->
+<section class="py-20 px-4">
+<div class="container mx-auto">
+<h2 class="text-3xl font-bold text-primary text-center mb-12">Sản phẩm nổi bật</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Product 1 -->
+<div class="bg-white rounded p-4 transition-all duration-300 hover:shadow-lg hover:shadow-secondary/20">
+<div class="mb-4 overflow-hidden rounded">
+<img src="https://readdy.ai/api/search-image?query=luxury%20blue%20glass%20bottle%20of%20peptide%20glazing%20fluid%20serum%20on%20white%20marble%20background%2C%20minimalist%20skincare%20product%20photography%2C%20high-end%20beauty%20product%20with%20droplet%20texture%2C%20professional%20cosmetic%20photography%20with%20soft%20shadows&width=600&height=600&seq=12346&orientation=squarish" alt="Peptide Glazing Fluid" class="w-full h-80 object-cover object-top hover:scale-105 transition-transform duration-500">
+</div>
+<h3 class="text-xl font-semibold text-primary mb-2">Peptide Glazing Fluid</h3>
+<div class="flex justify-between items-center mb-4">
+<span class="text-secondary font-medium">850.000 ₫</span>
+<div class="text-xs px-2 py-1 bg-[#F5F8FA] text-primary rounded">Bestseller</div>
+</div>
+<button class="w-full border border-secondary text-secondary hover:bg-primary hover:text-white hover:border-primary transition-colors duration-300 py-2 font-medium !rounded-button whitespace-nowrap">Thêm vào giỏ hàng</button>
+</div>
+<!-- Product 2 -->
+<div class="bg-white rounded p-4 transition-all duration-300 hover:shadow-lg hover:shadow-secondary/20">
+<div class="mb-4 overflow-hidden rounded">
+<img src="https://readdy.ai/api/search-image?query=luxury%20blue%20glass%20jar%20of%20barrier%20restore%20cream%20on%20white%20marble%20background%2C%20minimalist%20skincare%20product%20photography%2C%20high-end%20beauty%20product%20with%20creamy%20texture%2C%20professional%20cosmetic%20photography%20with%20soft%20shadows&width=600&height=600&seq=12347&orientation=squarish" alt="Barrier Restore Cream" class="w-full h-80 object-cover object-top hover:scale-105 transition-transform duration-500">
+</div>
+<h3 class="text-xl font-semibold text-primary mb-2">Barrier Restore Cream</h3>
+<div class="flex justify-between items-center mb-4">
+<span class="text-secondary font-medium">950.000 ₫</span>
+<div class="text-xs px-2 py-1 bg-[#F5F8FA] text-primary rounded">Mới</div>
+</div>
+<button class="w-full border border-secondary text-secondary hover:bg-primary hover:text-white hover:border-primary transition-colors duration-300 py-2 font-medium !rounded-button whitespace-nowrap">Thêm vào giỏ hàng</button>
+</div>
+<!-- Product 3 -->
+<div class="bg-white rounded p-4 transition-all duration-300 hover:shadow-lg hover:shadow-secondary/20">
+<div class="mb-4 overflow-hidden rounded">
+<img src="https://readdy.ai/api/search-image?query=luxury%20blue%20glass%20dropper%20bottle%20of%20hyaluronic%20acid%20serum%20on%20white%20marble%20background%2C%20minimalist%20skincare%20product%20photography%2C%20high-end%20beauty%20product%20with%20clear%20gel%20texture%2C%20professional%20cosmetic%20photography%20with%20soft%20shadows&width=600&height=600&seq=12348&orientation=squarish" alt="Peptide Lip Treatment" class="w-full h-80 object-cover object-top hover:scale-105 transition-transform duration-500">
+</div>
+<h3 class="text-xl font-semibold text-primary mb-2">Peptide Lip Treatment</h3>
+<div class="flex justify-between items-center mb-4">
+<span class="text-secondary font-medium">450.000 ₫</span>
+<div class="text-xs px-2 py-1 bg-[#F5F8FA] text-primary rounded">Phổ biến</div>
+</div>
+<button class="w-full border border-secondary text-secondary hover:bg-primary hover:text-white hover:border-primary transition-colors duration-300 py-2 font-medium !rounded-button whitespace-nowrap">Thêm vào giỏ hàng</button>
+</div>
+</div>
+<div class="text-center mt-12">
+<a href="#" class="inline-block bg-primary text-white px-8 py-3 font-semibold hover:bg-secondary transition-colors duration-300 !rounded-button whitespace-nowrap">Xem tất cả sản phẩm</a>
+</div>
+</div>
+</section>
+
+<footer class="bg-[#B5DDEB] text-gray-800 pt-10 pb-6">
+  <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+
+    <!-- Hỗ trợ khách hàng -->
+    <div>
+      <h4 class="text-lg font-semibold mb-4">Customer Support</h4>
+      <p class="mb-2 text-red-600 font-semibold">Hotline: 1800 6324</p>
+      <ul class="space-y-1 text-sm">
+        <li>FAQs</li>
+        <li>Send Support Request</li>
+        <li>How to Order</li>
+        <li>Shipping Methods</li>
+        <li>Return Policy</li>
+      </ul>
+    </div>
+
+    <!-- Về Elaria -->
+    <div>
+      <h4 class="text-lg font-semibold mb-4">About Elaria</h4>
+      <ul class="space-y-1 text-sm">
+        <li>About Us</li>
+        <li>Careers</li>
+        <li>Privacy Policy</li>
+        <li>Terms of Use</li>
+        <li>Contact</li>
+      </ul>
+    </div>
+
+    <!-- Liên kết -->
+    <div>
+      <h4 class="text-lg font-semibold mb-4">Partnerships</h4>
+      <ul class="space-y-1 text-sm">
+        <li><a href="#">Elaria Clinic</a></li>
+        <li><a href="#">Elaria.Korea</a></li>
+        <li><a href="#">Elaria Cosmetics</a></li>
+      </ul>
+      <div class="flex space-x-4 mt-3">
+        <a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4LhfQf2ZnxznDHPo7sFNKyanqk5C0RrTDwA&s" class="w-6" alt="Facebook" /></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" class="w-6" alt="Tiktok" /></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384015.png" class="w-6" alt="Instagram" /></a>
+      </div>
+    </div>
+
+    <!-- Đăng ký & QR -->
+    <div>
+      <h4 class="text-lg font-semibold mb-4">Get Updates & Offers</h4>
+      <div class="flex mb-4">
+        <input type="email" placeholder="your email" class="p-2 w-full rounded-l-md border border-gray-300 focus:outline-none">
+        <button class="bg-orange-500 text-white px-4 rounded-r-md">Subscribe</button>
+      </div>
+      <div class="flex items-center space-x-4">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://elaria.vn" alt="QR Code" class="w-20 h-20" />
+        <div class="flex flex-col space-y-1">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpDqeYJGw7-rxYrfeY4xwYaPJEgChvCWczhw&s" class="w-6" alt="App Store" />
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" class="w-24" alt="Google Play" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center text-sm mt-8 text-gray-600">© 2025 Elaria. All rights reserved.</div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Parallax effect for hero section
+window.addEventListener('scroll', function() {
+const scrollPosition = window.pageYOffset;
+const heroSection = document.querySelector('section');
+heroSection.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+});
+});
+</script>
+</body>
+</html>
