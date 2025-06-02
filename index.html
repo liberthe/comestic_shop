@@ -12,7 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
 <link rel="stylesheet" href="index.css">
-
+  <link rel="stylesheet" href="banner.css">
 <style>
 :where([class^="ri-"])::before { content: "\f3c2"; }
 body {
@@ -57,14 +57,14 @@ border-color: #15334d;
       <!-- Icons -->
 <div class="flex items-center space-x-6 text-sm text-gray-700">
   <div class="flex items-center space-x-1 hover:text-blue-700 cursor-pointer">
-    <span>👤</span><span>Account</span>
+    <span>👤</span><span>Tài khoản</span>
   </div>
   <div class="flex items-center space-x-1 hover:text-blue-700 cursor-pointer relative">
-    <span>🤍</span><span>Wishlist</span>
+    <span>🤍</span><span>Yêu thích</span>
     <span class="absolute -top-2 -right-3 bg-black text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
   </div>
   <div class="flex items-center space-x-1 border border-yellow-400 rounded px-2 py-1 hover:bg-yellow-100 cursor-pointer relative">
-    <span>🛒</span><span>Cart</span>
+    <span>🛒</span><span>Giỏ hàng</span>
     <span class="absolute -top-2 -right-3 bg-black text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
   </div>
 </div>
@@ -73,19 +73,19 @@ border-color: #15334d;
 <!-- Navigation menu -->
 <nav class="w-full bg-white shadow-sm">
   <div class="max-w-screen-xl mx-auto px-4 py-2 flex space-x-6 text-sm font-semibold text-gray-800">
-    <a href="#" class="hover:text-blue-600">ABOUT</a>
+    <a href="#" class="hover:text-blue-600">GIỚI THIỆU</a>
     <div class="relative group">
-      <a href="#" class="hover:text-blue-600">PRODUCTS </a>
+      <a href="#" class="hover:text-blue-600">SẢN PHẨM </a>
     </div>
     <a href="#" class="hover:text-blue-600">BLOG</a>
     <div class="relative group">
-      <a href="#" class="hover:text-blue-600">ORDER & PAYMENT </a>
+      <a href="#" class="hover:text-blue-600">ĐẶT HÀNG & THANH TOÁN </a>
     </div>
     <div class="relative group">
-      <a href="#" class="hover:text-blue-600">POLICIES </a>
+      <a href="#" class="hover:text-blue-600">CHÍNH SÁCH</a>
     </div>
     <div class="relative group">
-      <a href="#" class="hover:text-blue-600">CONTACT </a>
+      <a href="#" class="hover:text-blue-600"> LIÊN HỆ </a>
     </div>
     <a href="#" class="hover:text-blue-600">LIVESTREAM</a>
   </div>
@@ -93,229 +93,33 @@ border-color: #15334d;
 
 
 
-<!-- Hero Section -->
-<section
-  class="relative h-screen flex items-center justify-center overflow-hidden"
-  style="background-image: url('https://readdy.ai/api/search-image?query=luxury%20skincare%20products%20with%20blue%20packaging%2C%20minimalist%20aesthetic%2C%20clean%20beauty%20products%20on%20marble%20surface%20with%20soft%20blue%20lighting%2C%20high-end%20cosmetics%20arranged%20elegantly%2C%20professional%20product%20photography%20with%20soft%20shadows%2C%20beauty%20flatlay%20with%20hydrating%20serums%20and%20creams&width=1920&height=1080&seq=12345&orientation=landscape'); background-size: cover; background-position: center;">
-  <div class="absolute inset-0 bg-blue-100 bg-opacity-55"></div>
-  <div class="relative z-10 text-center px-4">
-    <h1 class="text-5xl md:text-6xl font-bold text-blue-900 drop-shadow-lg mb-6">
-      Elaria - Korean Beauty
-    </h1>
-    <p class="text-xl md:text-2xl text-blue-800 font-medium mb-8 max-w-2xl mx-auto drop-shadow">
-      Cùng bạn khám phá bí quyết làm đẹp từ Hàn Quốc
-    </p>
-    <button class="bg-blue-900 text-white px-8 py-3 text-lg font-semibold hover:bg-blue-700 transition-colors duration-300 rounded-full shadow-lg">
-      SHOP NOW
-    </button>
+   <!-- Hero -->
+<div class="slider-container w-full">
+  <div class="slider-arrow prev"><i class="ri-arrow-left-s-line"></i></div>
+  <div class="slider-arrow next"><i class="ri-arrow-right-s-line"></i></div>
+
+  <div class="slider">
+    <div class="slide bg-primary">
+      <img src="hero.png" class="w-full h-full object-cover" alt="Slide 1">
+    </div>
+
+    <div class="slide bg-primary">
+      <img src="hero11.png" class="w-full h-full object-cover" alt="Slide 2">
+    </div>
+
+    <div class="slide bg-primary">
+      <img src="hero12.png" class="w-full h-full object-cover" alt="Slide 3">
+    </div>
   </div>
-</section>
-  <!-- Categories -->
-    <section class="py-10">
-        <div class="container mx-auto px-4">
-            <h2 class="text-2xl font-bold mb-6 text-gray-800">Danh Mục Sản Phẩm</h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                <div class="bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition-shadow">
-                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <i class="ri-water-flash-line text-primary text-2xl"></i>
-                    </div>
-                    <h3 class="font-medium text-gray-800">Dưỡng Ẩm</h3>
-                </div>
-                
-                <div class="bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition-shadow">
-                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <i class="ri-sun-line text-primary text-2xl"></i>
-                    </div>
-                    <h3 class="font-medium text-gray-800">Chống Nắng</h3>
-                </div>
-                
-                <div class="bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition-shadow">
-                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <i class="ri-drop-line text-primary text-2xl"></i>
-                    </div>
-                    <h3 class="font-medium text-gray-800">Serum</h3>
-                </div>
-                
-                <div class="bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition-shadow">
-                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <i class="ri-face-line text-primary text-2xl"></i>
-                    </div>
-                    <h3 class="font-medium text-gray-800">Mặt Nạ</h3>
-                </div>
-                
-                <div class="bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition-shadow">
-                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <i class="ri-eye-line text-primary text-2xl"></i>
-                    </div>
-                    <h3 class="font-medium text-gray-800">Mắt</h3>
-                </div>
-                
-                <div class="bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition-shadow">
-                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <i class="ri-more-line text-primary text-2xl"></i>
-                    </div>
-                    <h3 class="font-medium text-gray-800">Xem Thêm</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-     <!-- Featured Banner -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="bg-white rounded-xl overflow-hidden shadow-lg">
-                <div class="flex flex-col md:flex-row">
-                    <div class="md:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col justify-center">
-                        <span class="text-primary font-semibold mb-4">BỘ SƯU TẬP MỚI</span>
-                        <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-6">Bộ Sản Phẩm Dưỡng Da Cấp Ẩm Chuyên Sâu</h2>
-                        <p class="text-gray-600 mb-8">Bộ sản phẩm dưỡng da toàn diện với công nghệ Aqua Boost từ Hàn Quốc, giúp cấp ẩm sâu và duy trì độ ẩm suốt 72 giờ. Phù hợp cho mọi loại da, đặc biệt là da khô và thiếu nước.</p>
-                        <div class="flex flex-wrap gap-4">
-                            <button class="bg-secondary text-white px-8 py-3 rounded-button font-medium transition duration-300 hover:bg-opacity-90 whitespace-nowrap">MUA NGAY</button>
-                            <button class="bg-white border border-secondary text-secondary px-8 py-3 rounded-button font-medium transition duration-300 hover:bg-gray-50 whitespace-nowrap">XEM CHI TIẾT</button>
-                        </div>
-                    </div>
-                    <div class="md:w-1/2">
-                        <img src="https://readdy.ai/api/search-image?query=korean%2520skincare%2520set%2520with%2520multiple%2520pastel%2520blue%2520bottles%2520and%2520jars%2520arranged%2520beautifully%2520on%2520white%2520background%2520with%2520water%2520splash%2520elements%2520professional%2520product%2520photography&width=800&height=600&seq=12354&orientation=landscape" alt="Bộ sản phẩm dưỡng da" class="w-full h-full object-cover object-top">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
- <!-- Best Sellers -->
-    <section class="py-10 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-2xl font-bold text-gray-800">Sản Phẩm Bán Chạy</h2>
-                <button class="text-primary hover:underline flex items-center whitespace-nowrap">
-                    Xem tất cả
-                    <i class="ri-arrow-right-line ml-1"></i>
-                </button>
-            </div>
-            
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                <!-- Product 1 -->
-                <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300">
-                    <div class="relative">
-                        <img src="https://readdy.ai/api/search-image?query=luxury%20korean%20snail%20mucin%20essence%20in%20elegant%20glass%20bottle%2C%20minimalist%20packaging%2C%20pastel%20blue%20background%2C%20product%20photography%2C%20high%20quality&width=300&height=300&seq=6&orientation=squarish" alt="Sản phẩm" class="w-full h-48 object-cover object-top">
-                        <div class="absolute top-2 left-2 bg-primary text-white text-xs px-2 py-1 rounded-full">Bán chạy</div>
-                    </div>
-                    <div class="p-3">
-                        <h3 class="font-medium text-gray-800 mb-1">Tinh Chất Ốc Sên</h3>
-                        <div class="flex items-center mb-2">
-                            <div class="flex text-yellow-400 text-xs">
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                            </div>
-                            <span class="text-xs text-gray-500 ml-1">(218)</span>
-                        </div>
-                        <div class="flex items-center">
-                            <span class="text-gray-800 font-bold">390.000₫</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Product 2 -->
-                <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300">
-                    <div class="relative">
-                        <img src="https://readdy.ai/api/search-image?query=luxury%20korean%20centella%20asiatica%20toner%20in%20elegant%20glass%20bottle%2C%20minimalist%20packaging%2C%20pastel%20blue%20background%2C%20product%20photography%2C%20high%20quality&width=300&height=300&seq=7&orientation=squarish" alt="Sản phẩm" class="w-full h-48 object-cover object-top">
-                        <div class="absolute top-2 left-2 bg-primary text-white text-xs px-2 py-1 rounded-full">Bán chạy</div>
-                    </div>
-                    <div class="p-3">
-                        <h3 class="font-medium text-gray-800 mb-1">Nước Hoa Hồng Rau Má</h3>
-                        <div class="flex items-center mb-2">
-                            <div class="flex text-yellow-400 text-xs">
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-half-fill"></i>
-                            </div>
-                            <span class="text-xs text-gray-500 ml-1">(176)</span>
-                        </div>
-                        <div class="flex items-center">
-                            <span class="text-gray-800 font-bold">240.000₫</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Product 3 -->
-                <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300">
-                    <div class="relative">
-                        <img src="https://readdy.ai/api/search-image?query=luxury%20korean%20niacinamide%20serum%20in%20elegant%20glass%20dropper%20bottle%2C%20minimalist%20packaging%2C%20pastel%20blue%20background%2C%20product%20photography%2C%20high%20quality&width=300&height=300&seq=8&orientation=squarish" alt="Sản phẩm" class="w-full h-48 object-cover object-top">
-                        <div class="absolute top-2 left-2 bg-primary text-white text-xs px-2 py-1 rounded-full">Bán chạy</div>
-                    </div>
-                    <div class="p-3">
-                        <h3 class="font-medium text-gray-800 mb-1">Serum Niacinamide 10%</h3>
-                        <div class="flex items-center mb-2">
-                            <div class="flex text-yellow-400 text-xs">
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-line"></i>
-                            </div>
-                            <span class="text-xs text-gray-500 ml-1">(142)</span>
-                        </div>
-                        <div class="flex items-center">
-                            <span class="text-gray-800 font-bold">290.000₫</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Product 4 -->
-                <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300">
-                    <div class="relative">
-                        <img src="https://readdy.ai/api/search-image?query=luxury%20korean%20cleansing%20balm%20in%20elegant%20jar%2C%20minimalist%20packaging%2C%20pastel%20blue%20background%2C%20product%20photography%2C%20high%20quality&width=300&height=300&seq=9&orientation=squarish" alt="Sản phẩm" class="w-full h-48 object-cover object-top">
-                        <div class="absolute top-2 left-2 bg-primary text-white text-xs px-2 py-1 rounded-full">Bán chạy</div>
-                    </div>
-                    <div class="p-3">
-                        <h3 class="font-medium text-gray-800 mb-1">Sáp Tẩy Trang</h3>
-                        <div class="flex items-center mb-2">
-                            <div class="flex text-yellow-400 text-xs">
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-half-fill"></i>
-                            </div>
-                            <span class="text-xs text-gray-500 ml-1">(198)</span>
-                        </div>
-                        <div class="flex items-center">
-                            <span class="text-gray-800 font-bold">350.000₫</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Product 5 -->
-                <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300">
-                    <div class="relative">
-                        <img src="https://readdy.ai/api/search-image?query=luxury%20korean%20peptide%20eye%20cream%20in%20elegant%20small%20jar%2C%20minimalist%20packaging%2C%20pastel%20blue%20background%2C%20product%20photography%2C%20high%20quality&width=300&height=300&seq=10&orientation=squarish" alt="Sản phẩm" class="w-full h-48 object-cover object-top">
-                        <div class="absolute top-2 left-2 bg-primary text-white text-xs px-2 py-1 rounded-full">Bán chạy</div>
-                    </div>
-                    <div class="p-3">
-                        <h3 class="font-medium text-gray-800 mb-1">Kem Mắt Peptide</h3>
-                        <div class="flex items-center mb-2">
-                            <div class="flex text-yellow-400 text-xs">
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-line"></i>
-                            </div>
-                            <span class="text-xs text-gray-500 ml-1">(87)</span>
-                        </div>
-                        <div class="flex items-center">
-                            <span class="text-gray-800 font-bold">420.000₫</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+</div>
 
 
+  <div class="slider-nav">
+    <div class="slider-dot active"></div>
+    <div class="slider-dot"></div>
+    <div class="slider-dot"></div>
+  </div>
+</div>
 <!-- Flash Sale Banner -->
     <section class="bg-gradient-to-r from-primary to-secondary py-6 text-white">
         <div class="container mx-auto px-4">
@@ -478,6 +282,213 @@ border-color: #15334d;
             </div>
         </div>
     </section>
+  <!-- Categories -->
+    <section class="py-10">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800">Danh Mục Sản Phẩm</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div class="bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="ri-water-flash-line text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800">Dưỡng Ẩm</h3>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="ri-sun-line text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800">Chống Nắng</h3>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="ri-drop-line text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800">Serum</h3>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="ri-face-line text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800">Mặt Nạ</h3>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="ri-eye-line text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800">Mắt</h3>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="ri-more-line text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800">Xem Thêm</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+ <!-- Best Sellers -->
+    <section class="py-10 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">Sản Phẩm Bán Chạy</h2>
+                <button class="text-primary hover:underline flex items-center whitespace-nowrap">
+                    Xem tất cả
+                    <i class="ri-arrow-right-line ml-1"></i>
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="https://readdy.ai/api/search-image?query=luxury%20korean%20snail%20mucin%20essence%20in%20elegant%20glass%20bottle%2C%20minimalist%20packaging%2C%20pastel%20blue%20background%2C%20product%20photography%2C%20high%20quality&width=300&height=300&seq=6&orientation=squarish" alt="Sản phẩm" class="w-full h-48 object-cover object-top">
+                        <div class="absolute top-2 left-2 bg-primary text-white text-xs px-2 py-1 rounded-full">Bán chạy</div>
+                    </div>
+                    <div class="p-3">
+                        <h3 class="font-medium text-gray-800 mb-1">Tinh Chất Ốc Sên</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400 text-xs">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                            </div>
+                            <span class="text-xs text-gray-500 ml-1">(218)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-gray-800 font-bold">390.000₫</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="https://readdy.ai/api/search-image?query=luxury%20korean%20centella%20asiatica%20toner%20in%20elegant%20glass%20bottle%2C%20minimalist%20packaging%2C%20pastel%20blue%20background%2C%20product%20photography%2C%20high%20quality&width=300&height=300&seq=7&orientation=squarish" alt="Sản phẩm" class="w-full h-48 object-cover object-top">
+                        <div class="absolute top-2 left-2 bg-primary text-white text-xs px-2 py-1 rounded-full">Bán chạy</div>
+                    </div>
+                    <div class="p-3">
+                        <h3 class="font-medium text-gray-800 mb-1">Nước Hoa Hồng Rau Má</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400 text-xs">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-half-fill"></i>
+                            </div>
+                            <span class="text-xs text-gray-500 ml-1">(176)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-gray-800 font-bold">240.000₫</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="https://readdy.ai/api/search-image?query=luxury%20korean%20niacinamide%20serum%20in%20elegant%20glass%20dropper%20bottle%2C%20minimalist%20packaging%2C%20pastel%20blue%20background%2C%20product%20photography%2C%20high%20quality&width=300&height=300&seq=8&orientation=squarish" alt="Sản phẩm" class="w-full h-48 object-cover object-top">
+                        <div class="absolute top-2 left-2 bg-primary text-white text-xs px-2 py-1 rounded-full">Bán chạy</div>
+                    </div>
+                    <div class="p-3">
+                        <h3 class="font-medium text-gray-800 mb-1">Serum Niacinamide 10%</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400 text-xs">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-line"></i>
+                            </div>
+                            <span class="text-xs text-gray-500 ml-1">(142)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-gray-800 font-bold">290.000₫</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="https://readdy.ai/api/search-image?query=luxury%20korean%20cleansing%20balm%20in%20elegant%20jar%2C%20minimalist%20packaging%2C%20pastel%20blue%20background%2C%20product%20photography%2C%20high%20quality&width=300&height=300&seq=9&orientation=squarish" alt="Sản phẩm" class="w-full h-48 object-cover object-top">
+                        <div class="absolute top-2 left-2 bg-primary text-white text-xs px-2 py-1 rounded-full">Bán chạy</div>
+                    </div>
+                    <div class="p-3">
+                        <h3 class="font-medium text-gray-800 mb-1">Sáp Tẩy Trang</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400 text-xs">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-half-fill"></i>
+                            </div>
+                            <span class="text-xs text-gray-500 ml-1">(198)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-gray-800 font-bold">350.000₫</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="https://readdy.ai/api/search-image?query=luxury%20korean%20peptide%20eye%20cream%20in%20elegant%20small%20jar%2C%20minimalist%20packaging%2C%20pastel%20blue%20background%2C%20product%20photography%2C%20high%20quality&width=300&height=300&seq=10&orientation=squarish" alt="Sản phẩm" class="w-full h-48 object-cover object-top">
+                        <div class="absolute top-2 left-2 bg-primary text-white text-xs px-2 py-1 rounded-full">Bán chạy</div>
+                    </div>
+                    <div class="p-3">
+                        <h3 class="font-medium text-gray-800 mb-1">Kem Mắt Peptide</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400 text-xs">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-line"></i>
+                            </div>
+                            <span class="text-xs text-gray-500 ml-1">(87)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-gray-800 font-bold">420.000₫</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <!-- Featured Banner -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="bg-white rounded-xl overflow-hidden shadow-lg">
+                <div class="flex flex-col md:flex-row">
+                    <div class="md:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col justify-center">
+                        <span class="text-primary font-semibold mb-4">BỘ SƯU TẬP MỚI</span>
+                        <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-6">Bộ Sản Phẩm Dưỡng Da Cấp Ẩm Chuyên Sâu</h2>
+                        <p class="text-gray-600 mb-8">Bộ sản phẩm dưỡng da toàn diện với công nghệ Aqua Boost từ Hàn Quốc, giúp cấp ẩm sâu và duy trì độ ẩm suốt 72 giờ. Phù hợp cho mọi loại da, đặc biệt là da khô và thiếu nước.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <button class="bg-secondary text-white px-8 py-3 rounded-button font-medium transition duration-300 hover:bg-opacity-90 whitespace-nowrap">MUA NGAY</button>
+                            <button class="bg-white border border-secondary text-secondary px-8 py-3 rounded-button font-medium transition duration-300 hover:bg-gray-50 whitespace-nowrap">XEM CHI TIẾT</button>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="featured banner.jpg" alt="Bộ sản phẩm dưỡng da" class="w-full h-full object-cover object-top">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!--REVIEW-->
 <section class="py-10">
   <div class="container mx-auto px-4">
     <h2 class="text-2xl font-bold mb-6 text-gray-800">Đánh Giá Từ Khách Hàng</h2>
@@ -487,13 +498,13 @@ border-color: #15334d;
       <!-- Review 1 -->
       <div class="rounded-xl shadow-sm overflow-hidden bg-[#e6f2f8] p-6">
         <div class="bg-white rounded-lg py-2 px-4 text-center mb-4 font-bold text-gray-800">
-          WATER BANK BLUE HYALURONIC CREAM
+          WATER BLUE CREAM
         </div>
         <div class="flex mb-4 text-sm text-gray-700">
           <i class="ri-double-quotes-l text-primary text-2xl mr-2"></i>
-          Những thành phần lành tính như Beta Glucan, Probiotics, Ceramide sẽ tái tạo làn da...
+          Những thành phần lành tính như Beta Glucan, Ceramide sẽ tái tạo làn da...
         </div>
-        <div class="font-semibold text-gray-800 mb-4">SUNI HÀ LINH</div>
+        <div class="font-semibold text-gray-800 mb-4">JENNY KIM</div>
         <div class="grid gap-2 text-sm text-gray-700">
           <div class="bg-white rounded-lg py-2 px-3 flex justify-between">
             <span>Sửa chữa tổn thương da</span><span class="badge">92.5%</span>
@@ -516,7 +527,7 @@ border-color: #15334d;
           <i class="ri-double-quotes-l text-[#f4a261] text-2xl mr-2"></i>
           Sản phẩm có Vitamin C, Vitamin E và Glycerin như một chất giữ độ ẩm cho da...
         </div>
-        <div class="font-semibold text-gray-800 mb-4">TIZI</div>
+        <div class="font-semibold text-gray-800 mb-4">KIM JISOO</div>
         <div class="grid gap-2 text-sm text-gray-700">
           <div class="bg-white rounded-lg py-2 px-3 flex justify-between">
             <span>Làm bỏ đốm nâu, đồng nội mắt</span><span class="badge text-[#f4a261] bg-[#f4a261]/20">91.5%</span>
@@ -556,71 +567,136 @@ border-color: #15334d;
     </div>
   </div>
 </section>
-
-<footer class="bg-[#B5DDEB] text-gray-800 pt-10 pb-6">
-  <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
-
-    
-
-    <!-- Hỗ trợ khách hàng -->
-    <div>
-      <h4 class="text-lg font-semibold mb-4">Customer Support</h4>
-      <p class="mb-2 text-red-600 font-semibold">Hotline: 1800 6324</p>
-      <ul class="space-y-1 text-sm">
-        <li>FAQs</li>
-        <li>Send Support Request</li>
-        <li>How to Order</li>
-        <li>Shipping Methods</li>
-        <li>Return Policy</li>
-      </ul>
-    </div>
-
-    <!-- Về Elaria -->
-    <div>
-      <h4 class="text-lg font-semibold mb-4">About Elaria</h4>
-      <ul class="space-y-1 text-sm">
-        <li>About Us</li>
-        <li>Careers</li>
-        <li>Privacy Policy</li>
-        <li>Terms of Use</li>
-        <li>Contact</li>
-      </ul>
-    </div>
-
-    <!-- Liên kết -->
-    <div>
-      <h4 class="text-lg font-semibold mb-4">Partnerships</h4>
-      <ul class="space-y-1 text-sm">
-        <li><a href="#">Elaria Clinic</a></li>
-        <li><a href="#">Elaria.Korea</a></li>
-        <li><a href="#">Elaria Cosmetics</a></li>
-      </ul>
-      <div class="flex space-x-4 mt-3">
-        <a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4LhfQf2ZnxznDHPo7sFNKyanqk5C0RrTDwA&s" class="w-6" alt="Facebook" /></a>
-        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" class="w-6" alt="Tiktok" /></a>
-        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384015.png" class="w-6" alt="Instagram" /></a>
-      </div>
-    </div>
-
-    <!-- Đăng ký & QR -->
-    <div>
-      <h4 class="text-lg font-semibold mb-4">Get Updates & Offers</h4>
-      <div class="flex mb-4">
-        <input type="email" placeholder="your email" class="p-2 w-full rounded-l-md border border-gray-300 focus:outline-none">
-        <button class="bg-orange-500 text-white px-4 rounded-r-md">Subscribe</button>
-      </div>
-      <div class="flex items-center space-x-4">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://elaria.vn" alt="QR Code" class="w-20 h-20" />
-        <div class="flex flex-col space-y-1">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpDqeYJGw7-rxYrfeY4xwYaPJEgChvCWczhw&s" class="w-6" alt="App Store" />
-          <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" class="w-24" alt="Google Play" />
+ <!-- Newsletter -->
+    <section class="py-12 bg-[#F0F8FF]">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="text-2xl font-bold text-gray-800 mb-3">Đăng Ký Nhận Tin</h2>
+                <p class="text-gray-600 mb-6">Nhận thông tin về sản phẩm mới, khuyến mãi đặc biệt và các mẹo chăm sóc da hữu ích.</p>
+                
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <input type="email" placeholder="Email của bạn" class="flex-1 px-4 py-3 rounded-button border-none bg-white shadow-sm focus:ring-2 focus:ring-primary/30">
+                    <button class="bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap">Đăng ký ngay</button>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
+    </section>
 
-  <div class="text-center text-sm mt-8 text-gray-600">© 2025 Elaria. All rights reserved.</div>
-</footer>
+ <!-- Footer -->
+  
+
+    <footer class="bg-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                   <a href="/">
+  <img src="elaria logo.jpg" alt="Logo" class="h-10" /></a>
+
+                    <p class="text-gray-600 text-sm mb-4">Chúng tôi cung cấp các sản phẩm chăm sóc da chất lượng cao, giúp bạn có được làn da khỏe mạnh, rạng rỡ mỗi ngày.</p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors">
+                            <i class="ri-youtube-line"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors">
+                            <i class="ri-tiktok-line"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-gray-800 mb-4">Thông Tin</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-primary text-sm">Về chúng tôi</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary text-sm">Chính sách bảo mật</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary text-sm">Điều khoản sử dụng</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary text-sm">Chính sách đổi trả</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary text-sm">Liên hệ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-gray-800 mb-4">Danh Mục</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-primary text-sm">Dưỡng ẩm</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary text-sm">Chống nắng</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary text-sm">Serum & Tinh chất</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary text-sm">Mặt nạ</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary text-sm">Chăm sóc mắt</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-gray-800 mb-4">Liên Hệ</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mt-0.5">
+                                <i class="ri-map-pin-line text-primary"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm ml-2">12 Chùa Bộc,Quang TRung,Đống Đa,Hà Nội</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-phone-line text-primary"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm ml-2">+84 123 456 789</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-mail-line text-primary"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm ml-2">ELARIAELARIA@beauty.vn</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-time-line text-primary"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm ml-2">Thứ 2 - Chủ nhật: 9:00 - 21:00</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200 mt-10 pt-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-600 text-sm mb-4 md:mb-0">© 2025 ELARIA Beauty Store. Tất cả quyền được bảo lưu.</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-5 flex items-center justify-center">
+                            <i class="ri-visa-fill text-gray-600"></i>
+                        </div>
+                        <div class="w-8 h-5 flex items-center justify-center">
+                            <i class="ri-mastercard-fill text-gray-600"></i>
+                        </div>
+                        <div class="w-8 h-5 flex items-center justify-center">
+                            <i class="ri-paypal-fill text-gray-600"></i>
+                        </div>
+                        <div class="w-8 h-5 flex items-center justify-center">
+                            <i class="ri-bank-card-fill text-gray-600"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <!-- Hiệu ứng xé -->
+<div class="tear-effect">
+  <svg viewBox="0 0 1440 150" preserveAspectRatio="none">
+    <path d="
+      M0,40 
+      Q180,10 360,50 
+      Q540,90 720,30 
+      Q900,-10 1080,60 
+      Q1260,100 1440,40 
+      L1440,150 
+      L0,150 
+      Z" fill="#ADD8E6" />
+  </svg>
+</div>
+    </footer>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -632,5 +708,7 @@ heroSection.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
 });
 });
 </script>
+ <script src="banner.js"></script>
 </body>
+
 </html>
