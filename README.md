@@ -1,1 +1,0 @@
-# comestic_shop
