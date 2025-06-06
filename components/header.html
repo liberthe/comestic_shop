@@ -1,38 +1,176 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* CSS cho menu Account */
+        .account {
+            position: relative;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            min-width: 150px;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f0f0f0;
+        }
+
+        .account:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu .logged-in {
+            display: none;
+        }
+    </style>
+</head>
 <header class="w-full bg-[#F0F8FF] shadow-sm">
   <div class="max-w-screen-xl mx-auto flex items-center justify-between px-4 py-3">
+    <!-- Logo -->
     <a href="/index.html">
-      <img src="elaria logo.jpg" alt="Elaria Logo" class="h-20 w-auto object-contain rounded-full">
+      <img src="../assets/images/elaria logo.jpg" alt="Elaria Logo" class="h-20 w-auto object-contain rounded-full" />
     </a>
+
+    <!-- Search bar -->
     <div class="flex-1 mx-8">
       <div class="relative">
         <input type="text" placeholder="Nhập tên sản phẩm..." class="w-full rounded-md bg-white py-2 px-4 text-sm shadow-sm" />
         <button class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-600 hover:text-blue-600">🔍</button>
       </div>
     </div>
+
+    <!-- Icons: Account, Wishlist, Cart -->
     <div class="flex items-center space-x-6 text-sm text-gray-700">
-      <div class="flex items-center space-x-1 hover:text-blue-700 cursor-pointer">
-        <span>👤</span><span>Account</span>
+      <!-- Account Dropdown -->
+      <div class="account">
+        👤Account
+        <div class="dropdown-menu">
+          <a href="../account/login.html" class="dropdown-item">Đăng nhập</a>
+          <a href="../account/register.html" class="dropdown-item">Đăng ký</a>
+          <a href="../account/my-account.html" class="dropdown-item logged-in">Thông tin cá nhân</a>
+          <a href="../account/logout.html" class="dropdown-item logged-in">Đăng xuất</a>
+        </div>
       </div>
+
+      <!-- Wishlist -->
       <div class="flex items-center space-x-1 hover:text-blue-700 cursor-pointer relative">
         <span>🤍</span><span>Wishlist</span>
         <span class="absolute -top-2 -right-3 bg-black text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
       </div>
-      <div class="flex items-center space-x-1 border border-yellow-400 rounded px-2 py-1 hover:bg-yellow-100 cursor-pointer relative">
-        <span>🛒</span><span>Cart</span>
-        <span class="absolute -top-2 -right-3 bg-black text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
-      </div>
+
+      <!-- Cart -->
+      <a href="../cart/cart.html" class="relative" id="cartIcon">
+        <div class="flex items-center space-x-1 border border-yellow-400 rounded px-2 py-1 hover:bg-yellow-100 cursor-pointer">
+          <span>🛒</span><span>Cart</span>
+          <span class="absolute -top-2 -right-3 bg-black text-white text-xs rounded-full w-5 h-5 flex items-center justify-center" id="cartCount">0</span>
+        </div>
+      </a>
     </div>
   </div>
 
+  <!-- Navigation -->
   <nav class="bg-white shadow-sm">
     <div class="max-w-screen-xl mx-auto px-4 py-2 flex space-x-6 text-sm font-semibold text-gray-800">
-      <a href="#" class="hover:text-blue-600">ABOUT</a>
-      <a href="../products/all-products.html" class="hover:text-blue-600">PRODUCTS</a>
-      <a href="#" class="hover:text-blue-600">BLOG</a>
-      <a href="#" class="hover:text-blue-600">ORDER & PAYMENT</a>
-      <a href="#" class="hover:text-blue-600">POLICIES</a>
-      <a href="#" class="hover:text-blue-600">CONTACT</a>
-
+      <a href="../about/about.html" class="hover:text-blue-600">GIỚI THIỆU</a>
+      <a href="../products/all-products.html" class="hover:text-blue-600">SẢN PHẨM</a>
+      <a href="../blog/blog-list.html" class="hover:text-blue-600">BLOG</a>
+      <a href="../cart/checkout.html" class="hover:text-blue-600">ĐẶT HÀNG & THANH TOÁN</a>
+      <a href="../policies/bao-mat.html" class="hover:text-blue-600">CHÍNH SÁCH</a>
+      <a href="../Contact/contact_page.html" class="hover:text-blue-600">LIÊN HỆ</a>
     </div>
   </nav>
 </header>
+
+<!-- Scripts -->
+<script>
+  // Cập nhật số lượng giỏ hàng từ localStorage
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const countEl = document.getElementById('cartCount');
+    if (countEl) countEl.textContent = count;
+  }
+
+  // Quản lý menu Account
+ (function () {
+  updateCartCount();
+
+  const accountMenu = document.querySelector('.account');
+  const dropdownMenu = document.querySelector('.dropdown-menu');
+  const loginItems = dropdownMenu.querySelectorAll('a:not(.logged-in)');
+  const loggedInItems = dropdownMenu.querySelectorAll('.logged-in');
+
+  function checkLoginStatus() {
+    return JSON.parse(localStorage.getItem('user')) !== null;
+  }
+
+  function updateMenu() {
+    const isLoggedIn = checkLoginStatus();
+    if (isLoggedIn) {
+      loginItems.forEach(item => item.style.display = 'none');
+      loggedInItems.forEach(item => item.style.display = 'block');
+    } else {
+      loginItems.forEach(item => item.style.display = 'block');
+      loggedInItems.forEach(item => item.style.display = 'none');
+    }
+  }
+
+ accountMenu.addEventListener('click', (e) => {
+  // Nếu người dùng bấm chính vào menu Account (không phải bên trong dropdown)
+  if (!e.target.closest('.dropdown-menu')) {
+    e.preventDefault();
+    dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+  }
+});
+
+
+  document.addEventListener('click', (e) => {
+    if (!accountMenu.contains(e.target)) {
+      dropdownMenu.style.display = 'none';
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('a[href="../account/logout.html"]')) {
+      e.preventDefault();
+      localStorage.removeItem('user');
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('loginType');
+      localStorage.removeItem('loginPhone');
+      updateMenu();
+      dropdownMenu.style.display = 'none';
+      location.reload();
+    }
+  });
+
+  window.addEventListener('storage', (e) => {
+    if (e.key === 'user') {
+      updateMenu();
+    }
+  });
+
+  updateMenu();
+})();
+
+  // Cho phép các file khác gọi cập nhật giỏ hàng
+  window.updateCartCount = updateCartCount;
+</script>

@@ -24,37 +24,38 @@ function createProductCard(product) {
 
 
 return `
-    <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden relative">
-      <div class="relative group">
-        <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover">
-        ${product.isNew ? '<div class="absolute top-2 left-2 bg-green-500 text-white text-xs px-2 py-1 rounded-full">Mới</div>' : ''}
-        
-        <!-- Container cho 2 nút -->
-        <div class="absolute bottom-2 left-2 right-2 flex gap-2">
-          <button class="action-btn add-to-cart-btn flex-1 bg-gray-600 text-white py-2 px-3 rounded-md hover:bg-opacity-90 transition-all text-sm">
-            <i class="ri-shopping-cart-line mr-1"></i>
-          </button>
-          <button class=" action-btn buy-now-btn flex-1 bg-gray-600 text-white py-2 px-3 rounded-md hover:bg-opacity-90 transition-all text-sm">
-            <i class="ri-shopping-bag-line mr-1"></i>
-        </div>
-      </div>
-      <div class="p-3">
-        <h3 class="font-medium text-gray-800 mb-1 hover:text-primary">
-        <a href="product-detail.html?id=${product.id}">${product.name}</a>
-        </h3>
-
-        <div class="flex items-center mb-2">
-          <div class="flex text-yellow-400 text-xs">
-            ${stars.join('')}
-          </div>
-          <span class="text-xs text-gray-500 ml-1">(${product.reviews})</span>
-        </div>
-        <div class="flex items-center">
-          <span class="text-primary font-bold">${product.price.toLocaleString()}₫</span>
-        </div>
+  <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden relative">
+    <div class="relative group">
+      <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover">
+      ${product.isNew ? '<div class="absolute top-2 left-2 bg-green-500 text-white text-xs px-2 py-1 rounded-full">Mới</div>' : ''}
+      <!-- Container cho 2 nút -->
+      <div class="absolute bottom-2 left-2 right-2 flex gap-2">
+        <button class="action-btn add-to-cart-btn flex-1 bg-gray-600 text-white py-2 px-3 rounded-md hover:bg-opacity-90 transition-all text-sm"
+          data-id="${product.id}">
+          <i class="ri-shopping-cart-line mr-1"></i>
+        </button>
+        <button class="action-btn buy-now-btn flex-1 bg-gray-600 text-white py-2 px-3 rounded-md hover:bg-opacity-90 transition-all text-sm"
+          data-id="${product.id}">
+          <i class="ri-shopping-bag-line mr-1"></i>
+        </button>
       </div>
     </div>
-  `;
+    <div class="p-3">
+      <h3 class="font-medium text-gray-800 mb-1 hover:text-primary">
+        <a href="product-detail.html?id=${product.id}">${product.name}</a>
+      </h3>
+      <div class="flex items-center mb-2">
+        <div class="flex text-yellow-400 text-xs">
+          ${stars.join('')}
+        </div>
+        <span class="text-xs text-gray-500 ml-1">(${product.reviews})</span>
+      </div>
+      <div class="flex items-center">
+        <span class="text-primary font-bold">${product.price.toLocaleString()}₫</span>
+      </div>
+    </div>
+  </div>
+`;
 }
 
 // Render products
@@ -220,3 +221,73 @@ document.addEventListener('DOMContentLoaded', function() {
   // Set first category as active
   document.querySelector('.filter-btn[data-category="all"]').classList.add('active');
 });
+
+// Lọc theo category từ URL nếu có
+const params = new URLSearchParams(window.location.search);
+const categoryParam = params.get('category');
+if (categoryParam) {
+  filteredProducts = products.filter(product => product.category === categoryParam);
+}
+
+// === Thêm vào giỏ hàng ===
+document.addEventListener("click", function (e) {
+  const cartBtn = e.target.closest(".add-to-cart-btn");
+  if (cartBtn) {
+    const productId = cartBtn.dataset.id;
+    const product = products.find(p => p.id == productId);
+    if (product) {
+      addToCart(product);
+    }
+  }
+
+  const buyBtn = e.target.closest(".buy-now-btn");
+  if (buyBtn) {
+    const productId = buyBtn.dataset.id;
+    const product = products.find(p => p.id == productId);
+    if (product) {
+      // Lưu sản phẩm mua ngay vào localStorage
+      localStorage.setItem('buyNowProduct', JSON.stringify({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        image: product.image,
+        quantity: 1
+      }));
+      window.location.href = "../cart/checkout.html";
+    }
+  }
+});
+
+function addToCart(product) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const existing = cart.find(item => item.id === product.id);
+
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    cart.push({
+      id: product.id,
+      name: product.name,
+      image: product.image,
+      price: product.price,
+      quantity: 1
+    });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+  alert("Đã thêm vào giỏ hàng!");
+}
+
+// Cập nhật số lượng giỏ hàng trên header
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const cartCountEl = document.getElementById("cartCount");
+  if (cartCountEl) {
+    cartCountEl.textContent = count;
+  }
+}
+
+// Gọi khi trang load
+document.addEventListener("DOMContentLoaded", updateCartCount);
