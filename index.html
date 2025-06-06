@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elaria - Korean Beauty</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#1E3D59',secondary:'#4A90E2'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="banner.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Montserrat', sans-serif;
+scroll-behavior: smooth;
+}
+.parallax {
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+.newsletter-input:focus {
+outline: none;
+border-color: #15334d;
+}
+</style>
+</head>
+<body class="bg-white">
+<div id="header"></div>
+<script>
+fetch('./components/header.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('header').innerHTML = data;
+  });
+</script>
+
+   <!-- Hero -->
+<div class="slider-container w-full">
+  <div class="slider-arrow prev"><i class="ri-arrow-left-s-line"></i></div>
+  <div class="slider-arrow next"><i class="ri-arrow-right-s-line"></i></div>
+
+  <div class="slider">
+    <div class="slide bg-primary">
+      <img src="hero.png" class="w-full h-full object-cover" alt="Slide 1">
+    </div>
+
+    <div class="slide bg-primary">
+      <img src="hero11.png" class="w-full h-full object-cover" alt="Slide 2">
+    </div>
+
+    <div class="slide bg-primary">
+      <img src="hero12.png" class="w-full h-full object-cover" alt="Slide 3">
+    </div>
+    
+  </div>
+</div>
+
+
+  <div class="slider-nav">
+    <div class="slider-dot active"></div>
+    <div class="slider-dot"></div>
+    <div class="slider-dot"></div>
+  </div>
+</div>
+<!-- Flash Sale Banner -->
+    <section class="bg-gradient-to-r from-primary to-secondary py-6 text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <div class="w-10 h-10 flex items-center justify-center">
+                        <i class="ri-flashlight-line text-2xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold ml-2">FLASH SALE</h2>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <div class="text-center">
+                        <div class="bg-white text-primary rounded-lg w-10 h-10 flex items-center justify-center font-bold">12</div>
+                        <div class="text-xs mt-1">Giờ</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-white text-primary rounded-lg w-10 h-10 flex items-center justify-center font-bold">45</div>
+                        <div class="text-xs mt-1">Phút</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-white text-primary rounded-lg w-10 h-10 flex items-center justify-center font-bold">30</div>
+                        <div class="text-xs mt-1">Giây</div>
+                    </div>
+                </div>
+                
+                <a href="promotions/promotions.html" class="bg-white text-primary px-6 py-2 rounded-button font-medium hover:bg-gray-100 transition-colors whitespace-nowrap">Xem tất cả</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flash Sale Products -->
+<section class="py-10 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      
+      <!-- Product 1 -->
+      <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300">
+        <div class="relative">
+          <img src="spham1.jpg" alt="Sản phẩm" class="w-full h-48 object-cover object-top">
+          <div class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">-30%</div>
+        </div>
+        <div class="p-3">
+          <h3 class="font-medium text-gray-800 mb-1">Kem Dưỡng Hyaluronic</h3>
+          <div class="flex items-center mb-2">
+            <div class="flex text-yellow-400 text-xs">
+              <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-half-fill"></i>
+            </div>
+            <span class="text-xs text-gray-500 ml-1">(124)</span>
+          </div>
+          <div class="flex items-center">
+            <span class="text-red-500 font-bold">320.000₫</span>
+            <span class="text-gray-400 text-sm line-through ml-2">450.000₫</span>
+          </div>
+           <div class="mt-3 flex space-x-2">
+            <button class="bg-sky-200 hover:bg-sky-300 text-gray text-sm px-3 py-1 rounded transition">Thêm vào giỏ</button>
+            <button class="bg-sky-300 hover:bg-sky-400  text-white text-sm px-3 py-1 rounded transition">Mua ngay</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300">
+        <div class="relative">
+          <img src="spham2.jpg" alt="Sản phẩm" class="w-full h-48 object-cover object-top">
+          <div class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">-25%</div>
+        </div>
+        <div class="p-3">
+          <h3 class="font-medium text-gray-800 mb-1">Serum Vitamin C</h3>
+          <div class="flex items-center mb-2">
+            <div class="flex text-yellow-400 text-xs">
+              <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+            </div>
+            <span class="text-xs text-gray-500 ml-1">(89)</span>
+          </div>
+          <div class="flex items-center">
+            <span class="text-red-500 font-bold">280.000₫</span>
+            <span class="text-gray-400 text-sm line-through ml-2">375.000₫</span>
+          </div>
+          <div class="mt-3 flex space-x-2">
+            <button class="bg-sky-200 hover:bg-sky-300 text-gray text-sm px-3 py-1 rounded transition">Thêm vào giỏ</button>
+            <button class="bg-sky-300 hover:bg-sky-400  text-white text-sm px-3 py-1 rounded transition">Mua ngay</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300">
+        <div class="relative">
+          <img src="spham3.jpg" alt="Sản phẩm" class="w-full h-48 object-cover object-top">
+          <div class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">-40%</div>
+        </div>
+        <div class="p-3">
+          <h3 class="font-medium text-gray-800 mb-1">Kem Retinol Ban Đêm</h3>
+          <div class="flex items-center mb-2">
+            <div class="flex text-yellow-400 text-xs">
+              <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-line"></i>
+            </div>
+            <span class="text-xs text-gray-500 ml-1">(76)</span>
+          </div>
+          <div class="flex items-center">
+            <span class="text-red-500 font-bold">420.000₫</span>
+            <span class="text-gray-400 text-sm line-through ml-2">700.000₫</span>
+          </div>
+           <div class="mt-3 flex space-x-2">
+            <button class="bg-sky-200 hover:bg-sky-300 text-gray text-sm px-3 py-1 rounded transition">Thêm vào giỏ</button>
+            <button class="bg-sky-300 hover:bg-sky-400  text-white text-sm px-3 py-1 rounded transition">Mua ngay</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300">
+        <div class="relative">
+          <img src="spham4.jpg" alt="Sản phẩm" class="w-full h-48 object-cover object-top">
+          <div class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">-20%</div>
+        </div>
+        <div class="p-3">
+          <h3 class="font-medium text-gray-800 mb-1">Kem Chống Nắng SPF50</h3>
+          <div class="flex items-center mb-2">
+            <div class="flex text-yellow-400 text-xs">
+              <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-half-fill"></i>
+            </div>
+            <span class="text-xs text-gray-500 ml-1">(145)</span>
+          </div>
+          <div class="flex items-center">
+            <span class="text-red-500 font-bold">250.000₫</span>
+            <span class="text-gray-400 text-sm line-through ml-2">310.000₫</span>
+          </div>
+          <div class="mt-3 flex space-x-2">
+            <button class="bg-sky-200 hover:bg-sky-300 text-gray text-sm px-3 py-1 rounded transition">Thêm vào giỏ</button>
+            <button class="bg-sky-300 hover:bg-sky-400  text-white text-sm px-3 py-1 rounded transition">Mua ngay</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300">
+        <div class="relative">
+          <img src="spham5.jpg" alt="Sản phẩm" class="w-full h-48 object-cover object-top">
+          <div class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">-35%</div>
+        </div>
+        <div class="p-3">
+          <h3 class="font-medium text-gray-800 mb-1">Bộ Mặt Nạ Dưỡng Da</h3>
+          <div class="flex items-center mb-2">
+            <div class="flex text-yellow-400 text-xs">
+              <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-line"></i>
+            </div>
+            <span class="text-xs text-gray-500 ml-1">(92)</span>
+          </div>
+          <div class="flex items-center">
+            <span class="text-red-500 font-bold">180.000₫</span>
+            <span class="text-gray-400 text-sm line-through ml-2">275.000₫</span>
+          </div>
+           <div class="mt-3 flex space-x-2">
+            <button class="bg-sky-200 hover:bg-sky-300 text-gray text-sm px-3 py-1 rounded transition">Thêm vào giỏ</button>
+            <button class="bg-sky-300 hover:bg-sky-400  text-white text-sm px-3 py-1 rounded transition">Mua ngay</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- Categories -->
+    <section class="py-10">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800">Danh Mục Sản Phẩm</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div class="bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="ri-water-flash-line text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800">Dưỡng Ẩm</h3>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="ri-sun-line text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800">Chống Nắng</h3>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="ri-drop-line text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800">Serum</h3>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="ri-face-line text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800">Mặt Nạ</h3>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="ri-eye-line text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800">Mắt</h3>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="ri-more-line text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800">Xem Thêm</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+ <!-- Best Sellers -->
+    <section class="py-10 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">Sản Phẩm Bán Chạy</h2>
+                <button class="text-primary hover:underline flex items-center whitespace-nowrap">
+                    Xem tất cả
+                    <i class="ri-arrow-right-line ml-1"></i>
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="sp1.jpg" alt="Sản phẩm" class="w-full h-48 object-cover object-top">
+                        <div class="absolute top-2 left-2 bg-primary text-white text-xs px-2 py-1 rounded-full">Bán chạy</div>
+                    </div>
+                    <div class="p-3">
+                        <h3 class="font-medium text-gray-800 mb-1">Tinh Chất Ốc Sên</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400 text-xs">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                            </div>
+                            <span class="text-xs text-gray-500 ml-1">(218)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-gray-800 font-bold">390.000₫</span>
+                        </div>
+                        <div class="mt-3 flex space-x-2">
+            <button class="bg-sky-200 hover:bg-sky-300 text-gray text-sm px-3 py-1 rounded transition">Thêm vào giỏ</button>
+            <button class="bg-sky-300 hover:bg-sky-400  text-white text-sm px-3 py-1 rounded transition">Mua ngay</button>
+          </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="sp2.jpg" alt="Sản phẩm" class="w-full h-48 object-cover object-top">
+                        <div class="absolute top-2 left-2 bg-primary text-white text-xs px-2 py-1 rounded-full">Bán chạy</div>
+                    </div>
+                    <div class="p-3">
+                        <h3 class="font-medium text-gray-800 mb-1">Nước Hoa Hồng Rau Má</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400 text-xs">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-half-fill"></i>
+                            </div>
+                            <span class="text-xs text-gray-500 ml-1">(176)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-gray-800 font-bold">240.000₫</span>
+                        </div>
+                        <div class="mt-3 flex space-x-2">
+            <button class="bg-sky-200 hover:bg-sky-300 text-gray text-sm px-3 py-1 rounded transition">Thêm vào giỏ</button>
+            <button class="bg-sky-300 hover:bg-sky-400  text-white text-sm px-3 py-1 rounded transition">Mua ngay</button>
+          </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="sp3.jpg" alt="Sản phẩm" class="w-full h-48 object-cover object-top">
+                        <div class="absolute top-2 left-2 bg-primary text-white text-xs px-2 py-1 rounded-full">Bán chạy</div>
+                    </div>
+                    <div class="p-3">
+                        <h3 class="font-medium text-gray-800 mb-1">Serum Niacinamide 10%</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400 text-xs">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-line"></i>
+                            </div>
+                            <span class="text-xs text-gray-500 ml-1">(142)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-gray-800 font-bold">290.000₫</span>
+                        </div>
+                        <div class="mt-3 flex space-x-2">
+            <button class="bg-sky-200 hover:bg-sky-300 text-gray text-sm px-3 py-1 rounded transition">Thêm vào giỏ</button>
+            <button class="bg-sky-300 hover:bg-sky-400  text-white text-sm px-3 py-1 rounded transition">Mua ngay</button>
+          </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="sp4.jpg" alt="Sản phẩm" class="w-full h-48 object-cover object-top">
+                        <div class="absolute top-2 left-2 bg-primary text-white text-xs px-2 py-1 rounded-full">Bán chạy</div>
+                    </div>
+                    <div class="p-3">
+                        <h3 class="font-medium text-gray-800 mb-1">Sáp Tẩy Trang</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400 text-xs">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-half-fill"></i>
+                            </div>
+                            <span class="text-xs text-gray-500 ml-1">(198)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-gray-800 font-bold">350.000₫</span>
+                        </div>
+                        <div class="mt-3 flex space-x-2">
+            <button class="bg-sky-200 hover:bg-sky-300 text-gray text-sm px-3 py-1 rounded transition">Thêm vào giỏ</button>
+            <button class="bg-sky-300 hover:bg-sky-400  text-white text-sm px-3 py-1 rounded transition">Mua ngay</button>
+          </div>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="sp5.jpg" alt="Sản phẩm" class="w-full h-48 object-cover object-top">
+                        <div class="absolute top-2 left-2 bg-primary text-white text-xs px-2 py-1 rounded-full">Bán chạy</div>
+                    </div>
+                    <div class="p-3">
+                        <h3 class="font-medium text-gray-800 mb-1">Kem Mắt Peptide</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400 text-xs">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-line"></i>
+                            </div>
+                            <span class="text-xs text-gray-500 ml-1">(87)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-gray-800 font-bold">420.000₫</span>
+                        </div>
+                        <div class="mt-3 flex space-x-2">
+            <button class="bg-sky-200 hover:bg-sky-300 text-gray text-sm px-3 py-1 rounded transition">Thêm vào giỏ</button>
+            <button class="bg-sky-300 hover:bg-sky-400  text-white text-sm px-3 py-1 rounded transition">Mua ngay</button>
+          </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <!-- Featured Banner -->
+    <section class="py-8 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="bg-white rounded-xl overflow-hidden shadow-lg">
+                <div class="flex flex-col md:flex-row">
+                   <div class="md:w-1/2 p-4 md:p-6 lg:p-8 flex flex-col justify-center items-center text-center">
+
+                      
+                        <span class="text-primary font-semibold mb-4">BỘ SƯU TẬP MỚI</span>
+                        <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-6">Bộ Sản Phẩm Dưỡng Da Cấp Ẩm Chuyên Sâu</h2>
+                        <p class="text-gray-600 mb-8">Bộ sản phẩm dưỡng da toàn diện ứng dụng công nghệ Aqua Boost từ Hàn Quốc, giúp cấp ẩm tức thì và duy trì độ ẩm suốt 72 giờ. Các dưỡng chất thẩm thấu sâu vào da, hỗ trợ phục hồi hàng rào bảo vệ tự nhiên, giữ nước tối ưu ngay cả trong điều kiện khô hanh hoặc ngồi điều hòa lâu.
+
+Bộ sản phẩm gồm 5 bước: sữa rửa mặt, toner cân bằng, serum cấp ẩm, kem dưỡng chuyên sâu và mặt nạ ngủ – mang đến chu trình chăm sóc da hoàn chỉnh, tiện lợi và hiệu quả.
+
+Thành phần chiết xuất từ nha đam, hoa cúc, nước khoáng lên men và hyaluronic acid, có tác dụng làm dịu, phục hồi và cấp ẩm sâu. Kết cấu mỏng nhẹ, không nhờn rít, phù hợp cho mọi loại da, đặc biệt là da khô và nhạy cảm.
+
+Không chứa paraben, cồn hay hương liệu, an toàn cho da nhạy cảm và có thể sử dụng hằng ngày để duy trì làn da ẩm mịn, khỏe mạnh và rạng rỡ.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <button class="bg-secondary text-white px-8 py-3 rounded-button font-medium transition duration-300 hover:bg-opacity-90 whitespace-nowrap">MUA NGAY</button>
+                            <button class="bg-white border border-secondary text-secondary px-8 py-3 rounded-button font-medium transition duration-300 hover:bg-gray-50 whitespace-nowrap">XEM CHI TIẾT</button>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                      <img src="feature banner 3.jpg" alt="Bộ sản phẩm dưỡng da" class="w-full h-auto object-cover object-top max-h-[600px]">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!--REVIEW-->
+<section class="py-10">
+  <div class="container mx-auto px-4">
+    <h2 class="text-2xl font-bold mb-6 text-gray-800">Đánh Giá Từ Khách Hàng</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!-- Review 1 -->
+      <div class="rounded-xl shadow-sm overflow-hidden bg-[#e6f2f8] p-6">
+        <div class="bg-white rounded-lg py-2 px-4 text-center mb-4 font-bold text-gray-800">
+          WATER BLUE CREAM
+        </div>
+        <div class="flex mb-4 text-sm text-gray-700">
+          <i class="ri-double-quotes-l text-primary text-2xl mr-2"></i>
+          Những thành phần lành tính như Beta Glucan, Ceramide sẽ tái tạo làn da...
+        </div>
+        <div class="font-semibold text-gray-800 mb-4">JENNY KIM</div>
+        <div class="grid gap-2 text-sm text-gray-700">
+          <div class="bg-white rounded-lg py-2 px-3 flex justify-between">
+            <span>Sửa chữa tổn thương da</span><span class="badge">92.5%</span>
+          </div>
+          <div class="bg-white rounded-lg py-2 px-3 flex justify-between">
+            <span>Cấp ẩm sâu đến 10 lớp da</span><span class="badge">89.3%</span>
+          </div>
+          <div class="bg-white rounded-lg py-2 px-3 flex justify-between">
+            <span>Giảm kí hiệu da chết</span><span class="badge">85.2%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review 2 -->
+      <div class="rounded-xl shadow-sm overflow-hidden bg-[#fbe9d9] p-6">
+        <div class="bg-white rounded-lg py-2 px-4 text-center mb-4 font-bold text-gray-800">
+          RADIAN-C CREAM
+        </div>
+        <div class="flex mb-4 text-sm text-gray-700">
+          <i class="ri-double-quotes-l text-[#f4a261] text-2xl mr-2"></i>
+          Sản phẩm có Vitamin C, Vitamin E và Glycerin như một chất giữ độ ẩm cho da...
+        </div>
+        <div class="font-semibold text-gray-800 mb-4">KIM JISOO</div>
+        <div class="grid gap-2 text-sm text-gray-700">
+          <div class="bg-white rounded-lg py-2 px-3 flex justify-between">
+            <span>Làm bỏ đốm nâu, đồng nội mắt</span><span class="badge text-[#f4a261] bg-[#f4a261]/20">91.5%</span>
+          </div>
+          <div class="bg-white rounded-lg py-2 px-3 flex justify-between">
+            <span>Làm sáng và thúc đẩy màu da</span><span class="badge text-[#f4a261] bg-[#f4a261]/20">89.9%</span>
+          </div>
+          <div class="bg-white rounded-lg py-2 px-3 flex justify-between">
+            <span>Cống thức dịu nhẹ, an toàn cho da</span><span class="badge text-[#f4a261] bg-[#f4a261]/20">87.7%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review 3 -->
+      <div class="rounded-xl shadow-sm overflow-hidden bg-[#f0e9d8] p-6">
+        <div class="bg-white rounded-lg py-2 px-4 text-center mb-4 font-bold text-gray-800">
+          PERFECT RENEW 3X
+        </div>
+        <div class="flex mb-4 text-sm text-gray-700">
+          <i class="ri-double-quotes-l text-[#e9c46a] text-2xl mr-2"></i>
+          Phần trăm retinol thấp nhưng lại hiệu quả vì không có tác dụng phụ...
+        </div>
+        <div class="font-semibold text-gray-800 mb-4">BS. TÔ LAN PHƯƠNG</div>
+        <div class="grid gap-2 text-sm text-gray-700">
+          <div class="bg-white rounded-lg py-2 px-3 flex justify-between">
+            <span>Cải thiện kết cấu và giảm nếp nhăn</span><span class="badge text-[#e9c46a] bg-[#e9c46a]/20">94.8%</span>
+          </div>
+          <div class="bg-white rounded-lg py-2 px-3 flex justify-between">
+            <span>Cải thiện vẻ bề ngoài da sần chác</span><span class="badge text-[#e9c46a] bg-[#e9c46a]/20">93.8%</span>
+          </div>
+          <div class="bg-white rounded-lg py-2 px-3 flex justify-between">
+            <span>Tăng cường độ rạng rỡ cho da</span><span class="badge text-[#e9c46a] bg-[#e9c46a]/20">89.6%</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<div id="footer"></div>
+<script>
+fetch('./components/footer.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('footer').innerHTML = data;
+  });
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Parallax effect for hero section
+window.addEventListener('scroll', function() {
+const scrollPosition = window.pageYOffset;
+const heroSection = document.querySelector('section');
+heroSection.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+});
+});
+</script>
+ <script src="banner.js"></script>
+</body>
+
+</html>
