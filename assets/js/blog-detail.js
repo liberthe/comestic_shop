@@ -1,9 +1,9 @@
-  fetch('comestic_shop/components/header.html')
+  fetch('/cosmetic_shop/components/header.html')
       .then(res => res.text())
       .then(data => {
         document.getElementById('header').innerHTML = data;
       });
-   fetch('comestic_shop/components/footer.html')
+   fetch('/cosmetic_shop/components/footer.html')
   .then(res => res.text())
   .then(data => {
     document.getElementById('footer').innerHTML = data;
@@ -58,7 +58,7 @@ Giúp da mềm mại, căng bóng và khỏe mạnh hơn.
 Sử dụng kem dưỡng này để duy trì làn da ẩm mịn và rạng rỡ!</p>
  <img src="https://file.hstatic.net/1000006063/file/s2569812-av-02-zoom_01995f835ff44e65bedbbc202d94bd13.jpg" alt="Top kem dưỡng ẩm cho da khô" style="width:100%; border-radius:12px; margin:28px 0;">  
 
-   <p>Vậy là chúng ta đã cùng điểm qua một số sản phẩm nổi bật để giữ cho làn da luôn thoáng và dễ chịu giữa ngày hè nóng nực. Bạn thấy sản phẩm nào phù hợp với bản thân, người đẹp còn chần chờ gì hãy <a href="comestic_shop/contact/contact_page.html" style="color: #4a90e2; font-weight: bold; text-decoration: underline;">liên lạc với chúng tôi </a> để được hỗ trợ đặt mua sản phẩm và hưởng ưu đãi dành riêng cho bạn ngay lập tức nhé!!! </p>
+   <p>Vậy là chúng ta đã cùng điểm qua một số sản phẩm nổi bật để giữ cho làn da luôn thoáng và dễ chịu giữa ngày hè nóng nực. Bạn thấy sản phẩm nào phù hợp với bản thân, người đẹp còn chần chờ gì hãy <a href="/cosmetic_shop/contact/contact_page.html" style="color: #4a90e2; font-weight: bold; text-decoration: underline;">liên lạc với chúng tôi </a> để được hỗ trợ đặt mua sản phẩm và hưởng ưu đãi dành riêng cho bạn ngay lập tức nhé!!! </p>
   <b>Xem thêm:</b>
   <li>
     <a style="color: #007BFF;" href="blog-detail.html?id=2" >Bí quyết chăm sóc da ban đêm đúng cách</a>
@@ -89,7 +89,7 @@ Sử dụng kem dưỡng này để duy trì làn da ẩm mịn và rạng rỡ!
 <p>Sau tất cả những bước chăm sóc cẩn thận, điều cuối cùng – và cũng là yếu tố quan trọng nhất – chính là một giấc ngủ đúng giờ, đủ giấc. Ngủ không chỉ là cách cơ thể nghỉ ngơi, mà còn là khoảng thời gian các tế bào da được tái tạo và phục hồi mạnh mẽ nhất. Theo nhiều nghiên cứu khoa học, khoảng thời gian từ 10 giờ tối đến 2 giờ sáng là “khung giờ vàng” của làn da – khi hormone tăng trưởng được sản sinh nhiều hơn, giúp tăng tốc độ tái tạo tế bào và đào thải độc tố ra khỏi cơ thể.</p>
 <img src="https://www.vinmec.com/static/uploads/20221218_081929_553031_cac_buoc_cham_soc_d_max_1800x1800_jpg_00a5b54dac.jpg" alt="Top kem dưỡng ẩm cho da khô" style="width:100%; border-radius:12px; margin:28px 0;">  
 <p>Ngủ quá muộn, ngủ không sâu giấc hoặc thiếu ngủ kéo dài sẽ khiến da trở nên xỉn màu, thiếu sức sống, xuất hiện quầng thâm, bọng mắt và các dấu hiệu lão hóa sớm. Do đó, hãy tạo thói quen đi ngủ trước 11 giờ mỗi đêm. Tránh dùng điện thoại, laptop hay các thiết bị điện tử ít nhất 30 phút trước khi ngủ để hạn chế ánh sáng xanh gây rối loạn nhịp sinh học. Bạn có thể đọc một vài trang sách, nghe nhạc nhẹ hoặc thực hiện vài động tác thiền, hít thở sâu để tâm trí được thả lỏng. Một chiếc gối sạch sẽ, ga giường mềm mại và căn phòng yên tĩnh sẽ là không gian lý tưởng để bạn “tái sinh” sau mỗi đêm dài. Khi bạn ngủ đủ và đúng giờ, vẻ đẹp tự nhiên sẽ âm thầm tỏa sáng từ bên trong.</p>
-<p>Khám phá ngay sản phẩm chăm sóc da ban đêm giúp bạn nuôi dưỡng làn da khỏe đẹp từ bên trong – vì mỗi giấc ngủ đều xứng đáng với một làn da rạng rỡ. Nhanh tay truy cập những <a href="comestic_shop/products/all-products.html" style="color: #4a90e2; font-weight: bold; text-decoration: underline;"> sản phẩm dưỡng da </a> và hưởng những ưu đãi dành cho riêng bạn!!!</p>
+<p>Khám phá ngay sản phẩm chăm sóc da ban đêm giúp bạn nuôi dưỡng làn da khỏe đẹp từ bên trong – vì mỗi giấc ngủ đều xứng đáng với một làn da rạng rỡ. Nhanh tay truy cập những <a href="/cosmetic_shop/products/all-products.html" style="color: #4a90e2; font-weight: bold; text-decoration: underline;"> sản phẩm dưỡng da </a> và hưởng những ưu đãi dành cho riêng bạn!!!</p>
 
          <b>Xem thêm:</b>
   <li>
@@ -145,7 +145,7 @@ Ngày nay, Elaria không còn là một cái tên xa lạ trong cộng đồng l
 <img src="https://thanhnien.mediacdn.vn/Uploaded/hoangnam/2022_01_02/shutterstock-403241755-9371.jpg" alt="Đi ngủ sớm" style="width:100%; border-radius:12px; margin:28px 0;">  
 
 <p>Ngủ quá muộn, ngủ không sâu giấc hoặc thiếu ngủ kéo dài sẽ khiến da trở nên xỉn màu, thiếu sức sống, xuất hiện quầng thâm, bọng mắt và các dấu hiệu lão hóa sớm. Do đó, hãy tạo thói quen đi ngủ trước 11 giờ mỗi đêm. Tránh dùng điện thoại, laptop hay các thiết bị điện tử ít nhất 30 phút trước khi ngủ để hạn chế ánh sáng xanh gây rối loạn nhịp sinh học. Bạn có thể đọc một vài trang sách, nghe nhạc nhẹ hoặc thực hiện vài động tác thiền, hít thở sâu để tâm trí được thả lỏng. Một chiếc gối sạch sẽ, ga giường mềm mại và căn phòng yên tĩnh sẽ là không gian lý tưởng để bạn “tái sinh” sau mỗi đêm dài. Khi bạn ngủ đủ và đúng giờ, vẻ đẹp tự nhiên sẽ âm thầm tỏa sáng từ bên trong.</p>
-<p>Khám phá ngay sản phẩm chăm sóc da ban đêm giúp bạn nuôi dưỡng làn da khỏe đẹp từ bên trong – vì mỗi giấc ngủ đều xứng đáng với một làn da rạng rỡ. Nhanh tay truy cập những <a href="comestic_shop/products/all-products.html" style="color: #4a90e2; font-weight: bold; text-decoration: underline;"> sản phẩm dưỡng da </a> và hưởng những ưu đãi dành cho riêng bạn!!!</p>
+<p>Khám phá ngay sản phẩm chăm sóc da ban đêm giúp bạn nuôi dưỡng làn da khỏe đẹp từ bên trong – vì mỗi giấc ngủ đều xứng đáng với một làn da rạng rỡ. Nhanh tay truy cập những <a href="/cosmetic_shop/products/all-products.html" style="color: #4a90e2; font-weight: bold; text-decoration: underline;"> sản phẩm dưỡng da </a> và hưởng những ưu đãi dành cho riêng bạn!!!</p>
           <b>Xem thêm:</b>
   <li>
     <a style="color: #007BFF;" href="blog-detail.html?id=2" >Bí quyết chăm sóc da ban đêm đúng cách</a>
@@ -189,7 +189,7 @@ Hiện nay trên thị trường có đa dạng các loại kem chống nắng p
 Ngoài ra, người tiếp xúc với các thiết bị điện tử cũng nên lưu ý, vì tia bức xạ từ máy tính có thể ảnh hưởng đến làn da. Bạn nên chú ý thời gian để bôi lại kem chống nắng vì hiệu quả tác dụng của mỗi loại thường khác nhau. Bên cạnh đó, bạn nên bôi kem chống nắng sau khi hoạt động mạnh làm đổ mồ hôi hay đi về từ trời mưa,...</p>
 <p>Hy vọng bài viết trên đã giúp bạn giải đáp được thắc mắc "Tại sao phải dùng kem chống nắng?" một cách cụ thể và chi tiết. Không chỉ những ngày nắng to, ngay cả những ngày trời râm bạn cũng nên sử dụng kem chống nắng để chăm sóc cho làn da của mình. Để kem chống nắng phát huy hiệu quả, hãy cân nhắc cẩn thận và lựa chọn những loại kem chống nắng phù hợp với làn da của mình nhé! </p>
 <h2>Sản phẩm kem chống nắng nổi bật của Elaria</h2>
-<p>Hiện nay Elaria đang có giảm giá một số sản phẩm chống nắng từ những thương hiệu nổi tiếng, bấm vào <a href="comestic_shop/products/all-products.html" style="color: #4a90e2; font-weight: bold; text-decoration: underline;">link</a> để xem loại sảm phẩm nào phù hợp với bạn nhé!</p>
+<p>Hiện nay Elaria đang có giảm giá một số sản phẩm chống nắng từ những thương hiệu nổi tiếng, bấm vào <a href="/cosmetic_shop/products/all-products.html" style="color: #4a90e2; font-weight: bold; text-decoration: underline;">link</a> để xem loại sảm phẩm nào phù hợp với bạn nhé!</p>
 <img src="https://file.hstatic.net/200000223113/file/banner_2986affedac641ecbf4484835ad7ec42.jpg7" alt="kem chống nắng" style="width:100%; border-radius:12px; margin:28px 0;">  
 
 <b>Xem thêm:</b>
@@ -277,7 +277,7 @@ Giúp da sáng mịn và đều màu hơn sau khi sử dụng đều đặn.</p>
 <p>Khi dùng vitamin C, hãy giữ quy trình đơn giản để hoạt chất có điều kiện phát huy tốt nhất. Sau bước làm sạch và toner dịu nhẹ, bạn có thể thoa serum vitamin C trực tiếp lên da ẩm, sau đó khóa ẩm bằng kem dưỡng. Tránh kết hợp với những sản phẩm chứa AHA/BHA nồng độ cao hoặc retinoid trong cùng một lần, vì có thể gây kích ứng. Nếu muốn kết hợp, hãy tách buổi sáng – tối hoặc dùng xen kẽ cách ngày.</p>
 <b>3. Kết hợp chống nắng – Bước bắt buộc khi dùng serum vitamin C ban ngày</b>
 <p>Nếu đã chọn dùng serum vitamin C vào buổi sáng, kem chống nắng là người bạn không thể thiếu. Hoạt chất này có thể bị bất hoạt khi tiếp xúc trực tiếp với tia UV, đồng thời làn da bạn cũng trở nên nhạy cảm hơn nếu không được bảo vệ kỹ. Ưu tiên loại kem chống nắng phổ rộng, có chỉ số SPF từ 30 trở lên để tăng hiệu quả bảo vệ và hỗ trợ quá trình dưỡng sáng da một cách toàn diện.</p>
-<p>Sử dụng serum vitamin C đúng cách không đòi hỏi phải cầu kỳ hay phức tạp. Chỉ cần hiểu da, dùng vừa đủ và kiên nhẫn mỗi ngày, bạn sẽ sớm thấy làn da của mình thay đổi theo cách nhẹ nhàng nhưng rõ rệt. Hãy tham quan ngay <a href="comestic_shop/products/all-products.html" style="color: #4a90e2; font-weight: bold; text-decoration: underline;">các mặt hàng</a> của chúng tôi và đặt hàng để hưởng những ưu đã dành riêng cho bạn!!!</p>
+<p>Sử dụng serum vitamin C đúng cách không đòi hỏi phải cầu kỳ hay phức tạp. Chỉ cần hiểu da, dùng vừa đủ và kiên nhẫn mỗi ngày, bạn sẽ sớm thấy làn da của mình thay đổi theo cách nhẹ nhàng nhưng rõ rệt. Hãy tham quan ngay <a href="/cosmetic_shop/products/all-products.html" style="color: #4a90e2; font-weight: bold; text-decoration: underline;">các mặt hàng</a> của chúng tôi và đặt hàng để hưởng những ưu đã dành riêng cho bạn!!!</p>
           <b>Xem thêm:</b>
   <li>
     <a style="color: #007BFF;" href="blog-detail.html?id=1" >Top 5 sản phẩm dưỡng ẩm cho da khô mùa hè</a>
@@ -294,7 +294,7 @@ Giúp da sáng mịn và đều màu hơn sau khi sử dụng đều đặn.</p>
           content: `
             <p>Trong thế giới chăm sóc da ngày nay, quy trình skincare trở nên ngày càng phức tạp với nhiều bước khác nhau, từ làm sạch đến dưỡng ẩm. Một trong những bước quan trọng mà nhiều người có thể xem nhẹ hoặc thậm chí bỏ qua là sử dụng toner. Liệu việc này có ảnh hưởng đến hiệu quả chăm sóc da hay không? Hãy cùng khám phá xem liệu quy trình skincare có thể bỏ qua bước toner hay không.</p>
             <h2>1. Toner là gì?</h2>
-          <p><a href="comestic_shop/products/all-products.html" style="color: #4a90e2; font-weight: bold; text-decoration: underline;"> Toner </a> hay còn được gọi là nước cân bằng, đóng vai trò quan trọng trong quá trình chăm sóc da. Sản phẩm này được sử dụng sau bước rửa mặt để len lỏi vào lỗ chân lông, loại bỏ hiệu quả bụi bẩn, vi khuẩn, và dầu thừa mà các sản phẩm khác như nước tẩy trang và sữa rửa mặt không thể loại bỏ hoàn toàn.</p>
+          <p><a href="/cosmetic_shop/products/all-products.html" style="color: #4a90e2; font-weight: bold; text-decoration: underline;"> Toner </a> hay còn được gọi là nước cân bằng, đóng vai trò quan trọng trong quá trình chăm sóc da. Sản phẩm này được sử dụng sau bước rửa mặt để len lỏi vào lỗ chân lông, loại bỏ hiệu quả bụi bẩn, vi khuẩn, và dầu thừa mà các sản phẩm khác như nước tẩy trang và sữa rửa mặt không thể loại bỏ hoàn toàn.</p>
           <img src="https://cdn.nhathuoclongchau.com.vn/unsafe/800x0/https://cms-prod.s3-sgn09.fptcloud.com/quy_trinh_skincare_bo_qua_buoc_toner_duoc_khong_1_b2a5248196.jpg" alt="Toner có cần thiết?" style="width:100%; border-radius:12px; margin:28px 0;">
           <p>Ngoài ra, toner còn có khả năng loại bỏ bã nhờn, giúp da hấp thụ dưỡng chất một cách hiệu quả hơn, đồng thời thu nhỏ lỗ chân lông và ngăn chặn tình trạng mụn xuất hiện. Chức năng điều chỉnh độ pH của da cũng là một điểm mạnh của toner, giúp duy trì sự ổn định của làn da, làm tăng cường khả năng tự phòng vệ của da trước các tác nhân có thể gây kích ứng. Do đó, việc tích hợp toner vào quy trình chăm sóc da hàng ngày là quan trọng để đảm bảo làn da khỏe mạnh và rạng rỡ.
 

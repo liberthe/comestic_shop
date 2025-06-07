@@ -253,7 +253,7 @@ document.addEventListener("click", function (e) {
         image: product.image,
         quantity: 1
       }));
-      window.location.href = "comestic_shop/cart/checkout.html";
+      window.location.href = "/cosmetic_shop/cart/checkout.html";
     }
   }
 });

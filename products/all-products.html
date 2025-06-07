@@ -38,7 +38,7 @@ body {
 <body class="bg-gray-50">
  <div id="header"></div>
 <script>
-fetch('cosmetic_shop/components/header.html')
+fetch('/cosmetic_shop/components/header.html')
   .then(res => res.text())
   .then(data => {
     document.getElementById('header').innerHTML = data;
@@ -49,7 +49,7 @@ fetch('cosmetic_shop/components/header.html')
 <div class="bg-white py-4">
   <div class="max-w-7xl mx-auto px-4">
     <nav class="text-sm text-gray-600">
-      <a href="cosmetic_shop/index.html" class="hover:text-primary">Trang chủ</a>
+      <a href="/cosmetic_shop/index.html" class="hover:text-primary">Trang chủ</a>
       <span class="mx-2">/</span>
       <span class="text-gray-800">Tất cả sản phẩm</span>
     </nav>
@@ -152,14 +152,14 @@ fetch('cosmetic_shop/components/header.html')
 
 <div id="footer"></div>
 <script>
-fetch('cosmetic_shop/components/footer.html')
+fetch('/cosmetic_shop/components/footer.html')
   .then(res => res.text())
   .then(data => {
     document.getElementById('footer').innerHTML = data;
   });
 </script>
-<script src="cosmetic_shop/assets/js/products.js"></script>
-<script src="cosmetic_shop/assets/js/all-products.js"></script>
+<script src="/cosmetic_shop/assets/js/products.js"></script>
+<script src="/cosmetic_shop/assets/js/all-products.js"></script>
 
 </body>
 </html>

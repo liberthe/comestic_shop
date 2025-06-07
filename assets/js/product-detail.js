@@ -141,7 +141,7 @@ function buyNow() {
     image: currentProduct.image,
     quantity: quantity
   }));
-  window.location.href = "../../cart/checkout.html";
+  window.location.href = "/cosmetic_shop/cart/checkout.html";
 }
 
 function renderRelatedProducts() {

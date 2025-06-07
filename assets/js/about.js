@@ -1,8 +1,8 @@
 
-fetch('comestic_shop/components/header.html')
+fetch('/cosmetic_shop/components/header.html')
   .then(res => res.text())
   .then(data => { document.getElementById('header-container').innerHTML = data; });
-fetch('comestic_shop/components/footer.html')
+fetch('/cosmetic_shop/components/footer.html')
   .then(res => res.text())
   .then(data => { document.getElementById('footer-container').innerHTML = data; });
 

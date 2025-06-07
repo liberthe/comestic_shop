@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
-<link rel="stylesheet" href="../assets/css/blog-detail.css"/>
+<link rel="stylesheet" href="/cosmetic_shop/assets/css/blog-detail.css"/>
 </head>
 <body style="background-image: linear-gradient(rgba(255,255,255,0.90), rgba(176,224,230,0.15)), url('https://img.freepik.com/premium-photo/background-decorative-cosmetics-blue-white-concept-valentine-s-day-composition-is-flat-lying-lipstick-flower-heart-leaf-nail-polish_76673-1456.jpg'); background-size: cover; background-position: center; backdrop-filter: blur(3px);">
   
@@ -24,7 +24,7 @@
   <!--Lấy nội dung bài-->
   <script type="module">
     document.addEventListener("DOMContentLoaded", async () => {
-      const postsModule = await import("../assets/js/blog-detail.js");
+      const postsModule = await import("/cosmetic_shop/assets/js/blog-detail.js");
       const posts = postsModule.default;
 
       const id = new URLSearchParams(window.location.search).get("id");
