@@ -11,8 +11,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
-<link rel="stylesheet" href="assets/css/index.css">
-  <link rel="stylesheet" href="assets/css/banner.css">
+<link rel="stylesheet" href="/cosmetic_shop/assets/css/index.css">
+  <link rel="stylesheet" href="/cosmetic_shop/assets/css/banner.css">
 <style>
 :where([class^="ri-"])::before { content: "\f3c2"; }
 body {
@@ -80,7 +80,7 @@ border-color: #15334d;
 <!-- Popup trung tâm -->
 <div id="contact-iframe-overlay" onclick="closeContactForm(event)">
   <div id="contact-iframe-container">
-    <iframe src="Contact/contact_form.html"></iframe>
+    <iframe src="/cosmetic_shop/contact/contact_form.html"></iframe>
   </div>
 
 </div>
@@ -104,7 +104,7 @@ border-color: #15334d;
   <!-- Popup ảnh khuyến mãi -->
 <div id="popup-overlay" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999] hidden">
   <div class="relative w-[90vw] max-w-[400px]">
-  <img src="assets/images/popup.png" alt="Khuyến mãi" class="w-full h-auto rounded-xl shadow-xl">
+  <img src="/cosmetic_shop/assets/images/popup.png" alt="Khuyến mãi" class="w-full h-auto rounded-xl shadow-xl">
     <button id="close-popup" class="absolute top-2 right-2 text-white text-2xl font-bold">&times;</button>
   </div>
 </div>
@@ -115,17 +115,17 @@ border-color: #15334d;
 <div class="slider-container w-full overflow-hidden">
   <div class="slider">
     <div class="slide bg-primary">
-      <img src="assets/images/hero.png" class="w-full h-auto object-cover max-h-[350px] md:max-h-[500px]" alt="Slide 1">
+      <img src="/cosmetic_shop/assets/images/hero.png" class="w-full h-auto object-cover max-h-[350px] md:max-h-[500px]" alt="Slide 1">
     </div>
 
     <div class="slide bg-primary">
-      <img src="assets/images/hero11.png" class="w-full h-full object-cover" alt="Slide 2">
+      <img src="/cosmetic_shop/assets/images/hero11.png" class="w-full h-full object-cover" alt="Slide 2">
     </div>
 
     <div class="slide bg-primary">
-      <img src="assets/images/hero12.png" class="w-full h-full object-cover" alt="Slide 3">
+      <img src="/cosmetic_shop/assets/images/hero12.png" class="w-full h-full object-cover" alt="Slide 3">
     </div>
-    
+
   </div>
 </div>
 
@@ -161,8 +161,8 @@ border-color: #15334d;
                     <div class="text-xs mt-1">Giây</div>
                 </div>
             </div>
-            
-            <a href="promotions/promotions.html" class="bg-white text-primary px-6 py-2 rounded-button font-medium hover:bg-gray-100 transition-colors whitespace-nowrap">Xem tất cả</a>
+
+            <a href="/cosmetic_shop/promotions/promotions.html" class="bg-white text-primary px-6 py-2 rounded-button font-medium hover:bg-gray-100 transition-colors whitespace-nowrap">Xem tất cả</a>
         </div>
     </div>
 </section>
@@ -179,7 +179,7 @@ border-color: #15334d;
     </div>
   </div>
 </section>
-<script src="assets/js/products.js"></script>
+<script src="/cosmetic_shop/assets/js/products.js"></script>
 
   <!-- Categories -->
     <section class="py-10">
@@ -231,7 +231,7 @@ Không chứa paraben, cồn hay hương liệu, an toàn cho da nhạy cảm v�
                         </div>
                     </div>
                     <div class="md:w-1/2">
-                      <img src="assets/images/feature banner 3.jpg" alt="Bộ sản phẩm dưỡng da" class="w-full h-auto object-cover object-top max-h-[600px]">
+                      <img src="/cosmetic_shop/assets/images/feature banner 3.jpg" alt="Bộ sản phẩm dưỡng da" class="w-full h-auto object-cover object-top max-h-[600px]">
 
                     </div>
                 </div>
@@ -317,12 +317,12 @@ Không chứa paraben, cồn hay hương liệu, an toàn cho da nhạy cảm v�
     </div>
   </div>
 </section>
-<script src="assets/js/products.js"></script>
-<script src="assets/js/main.js"></script>
-<script src="assets/js/banner.js"></script>
+<script src="/cosmetic_shop/assets/js/products.js"></script>
+<script src="/cosmetic_shop/assets/js/main.js"></script>
+<script src="/cosmetic_shop/assets/js/banner.js"></script>
 <div id="footer"></div>
 <script>
-fetch('components/header.html')
+fetch('/cosmetic_shop/components/header.html')
   .then(res => res.text())
   .then(data => {
     document.getElementById('header').innerHTML = data;
@@ -341,7 +341,7 @@ fetch('components/header.html')
     });
   });
 
-fetch('components/footer.html')
+fetch('/cosmetic_shop/components/footer.html')
   .then(res => res.text())
   .then(data => {
     document.getElementById('footer').innerHTML = data;
