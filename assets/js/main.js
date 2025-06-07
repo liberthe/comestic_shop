@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   `;
   moreDiv.onclick = () => {
-    window.location.href = "promotions/promotions.html";
+    window.location.href = "/cosmetic_shop/promotions/promotions.html";
   };
   track.appendChild(moreDiv);
 
@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <h3 class="font-medium text-gray-800">${info.label}</h3>
     `;
     div.onclick = () => {
-      window.location.href = "products/all-products.html?category=" + encodeURIComponent(cat);
+      window.location.href = "/cosmetic_shop/products/all-products.html?category=" + encodeURIComponent(cat);
     };
     categoryList.appendChild(div);
   });
@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <h3 class="font-medium text-gray-800">Xem Thêm</h3>
     `;
     moreDiv.onclick = () => {
-      window.location.href = "products/all-products.html";
+      window.location.href = "/cosmetic_shop/products/all-products.html";
     };
     categoryList.appendChild(moreDiv);
   }
@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   `;
   moreDiv.onclick = () => {
-    window.location.href = "products/all-products.html";
+    window.location.href = "/cosmetic_shop/products/all-products.html";
   };
   track.appendChild(moreDiv);
 
@@ -251,7 +251,7 @@ document.addEventListener('DOMContentLoaded', function() {
     updateCarousel();
   };
   document.getElementById('bestseller-viewall').onclick = function() {
-    window.location.href = "products/all-products.html";
+    window.location.href = "/cosmetic_shop/products/all-products.html";
   };
   updateCarousel();
 });
@@ -302,7 +302,7 @@ document.addEventListener("click", function(e) {
         image: product.image,
         quantity: 1
       }));
-      window.location.href = "cart/checkout.html";
+      window.location.href = "/cosmetic_shop/cart/checkout.html";
     }
   }
 
@@ -315,7 +315,7 @@ document.addEventListener("click", function(e) {
   ) {
     const id = card.querySelector("[data-id]")?.dataset.id || card.dataset.id;
     if (id) {
-      window.location.href = `products/product-detail.html?id=${id}`;
+      window.location.href = `/cosmetic_shop/products/product-detail.html?id=${id}`;
     }
   }
 });

@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelector(".top-button").onclick = () =>
   window.scrollTo({ top: 0, behavior: 'smooth' });
 document.querySelector(".back-button").onclick = () =>
-  window.location.href = "/index.html";
+  window.location.href = "/cosmetic_shop/index.html";
 
 });
  
