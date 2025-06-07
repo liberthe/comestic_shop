@@ -147,7 +147,7 @@
         <p>Giảm giá: <strong>0 ₫</strong></p>
         <hr class="my-2">
         <p><strong>Tổng cộng: <span id="totalPrice">0 ₫</span></strong></p>
-        <button class="btn" onclick="goToCheckout()">Tiến hành đặt hàng</button>
+        <button class="btn" onclick="proceedToCheckout()">Tiến hành đặt hàng</button>
       </div>
     </div>
   </div>
@@ -211,6 +211,10 @@ fetch('../components/footer.html')
     function goToCheckout() {
   const totalPrice = document.getElementById('totalPrice').textContent.replace(/\D/g, '');
   localStorage.setItem('checkoutTotal', totalPrice); // lưu tổng tiền (chỉ số)
+  window.location.href = 'checkout.html';
+}
+function proceedToCheckout() {
+  localStorage.removeItem('buyNowProduct'); // xoá nếu từng bấm "Mua ngay"
   window.location.href = 'checkout.html';
 }
 

@@ -71,13 +71,7 @@
         </div>
       </div>
 
-      <!-- Wishlist -->
-      <div class="flex items-center space-x-1 hover:text-blue-700 cursor-pointer relative">
-        <span>🤍</span><span>Wishlist</span>
-        <span class="absolute -top-2 -right-3 bg-black text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
-      </div>
-
-      <!-- Cart -->
+            <!-- Cart -->
       <a href="../cart/cart.html" class="relative" id="cartIcon">
         <div class="flex items-center space-x-1 border border-yellow-400 rounded px-2 py-1 hover:bg-yellow-100 cursor-pointer">
           <span>🛒</span><span>Cart</span>
@@ -94,8 +88,21 @@
       <a href="../products/all-products.html" class="hover:text-blue-600">SẢN PHẨM</a>
       <a href="../blog/blog-list.html" class="hover:text-blue-600">BLOG</a>
       <a href="../cart/checkout.html" class="hover:text-blue-600">ĐẶT HÀNG & THANH TOÁN</a>
-      <a href="../policies/bao-mat.html" class="hover:text-blue-600">CHÍNH SÁCH</a>
-      <a href="../Contact/contact_page.html" class="hover:text-blue-600">LIÊN HỆ</a>
+      <!-- Dropdown Chính Sách -->
+      <div class="relative" id="policy-dropdown">
+        <button id="policy-btn" class="hover:text-blue-600 flex items-center focus:outline-none bg-transparent border-none p-0 m-0 font-inherit">
+          CHÍNH SÁCH
+          <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div id="policy-menu" class="absolute left-0 mt-2 bg-white border border-gray-200 rounded shadow-lg z-20 min-w-[180px]" style="display: none;">
+          <a href="../policies/bao-mat.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Chính sách bảo mật</a>
+          <a href="../policies/dieu-khoan.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Điều khoản sử dụng</a>
+          <a href="../policies/doi-tra.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Chính sách đổi trả</a>
+        </div>
+      </div>
+      <a href="../contact/contact_page.html" class="hover:text-blue-600">LIÊN HỆ</a>
     </div>
   </nav>
 </header>
@@ -170,6 +177,28 @@
 
   updateMenu();
 })();
+
+  // Dropdown Chính Sách: Toggle khi bấm
+  function setupPolicyDropdown() {
+  const btn = document.getElementById('policy-btn');
+  const menu = document.getElementById('policy-menu');
+  if (!btn || !menu) return;
+
+  btn.addEventListener('click', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!btn.contains(e.target) && !menu.contains(e.target)) {
+      menu.style.display = 'none';
+    }
+  });
+}
+
+// Gọi hàm này khi header đã được nhúng vào trang
+setupPolicyDropdown();
 
   // Cho phép các file khác gọi cập nhật giỏ hàng
   window.updateCartCount = updateCartCount;

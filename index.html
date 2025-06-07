@@ -101,6 +101,14 @@ border-color: #15334d;
 </script>
 </head>
 <body class="bg-white">
+  <!-- Popup ảnh khuyến mãi -->
+<div id="popup-overlay" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999] hidden">
+  <div class="relative w-[90vw] max-w-[400px]">
+  <img src="assets/images/popup.png" alt="Khuyến mãi" class="w-full h-auto rounded-xl shadow-xl">
+    <button id="close-popup" class="absolute top-2 right-2 text-white text-2xl font-bold">&times;</button>
+  </div>
+</div>
+
 <div id="header"></div>
 
    <!-- Hero -->
@@ -314,12 +322,51 @@ Không chứa paraben, cồn hay hương liệu, an toàn cho da nhạy cảm v�
 <script src="assets/js/banner.js"></script>
 <div id="footer"></div>
 <script>
-fetch('../components/footer.html')
+fetch('components/header.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('header').innerHTML = data;
+    // Thực thi lại các script trong header
+    const scripts = document.getElementById('header').querySelectorAll('script');
+    scripts.forEach(oldScript => {
+      const newScript = document.createElement('script');
+      if (oldScript.src) {
+        newScript.src = oldScript.src;
+      } else {
+        newScript.textContent = oldScript.textContent;
+      }
+      document.body.appendChild(newScript);
+      // Xóa script cũ nếu muốn
+      // oldScript.remove();
+    });
+  });
+
+fetch('components/footer.html')
   .then(res => res.text())
   .then(data => {
     document.getElementById('footer').innerHTML = data;
   });
 </script>
+<script>
+  // Hiển thị popup sau khi tải trang
+  window.addEventListener('load', function () {
+    const popup = document.getElementById('popup-overlay');
+    popup.classList.remove('hidden');
+  });
+
+  // Ẩn popup khi bấm nút đóng hoặc click ra ngoài
+  document.getElementById('close-popup').addEventListener('click', function () {
+    document.getElementById('popup-overlay').classList.add('hidden');
+  });
+
+  // Ẩn popup nếu click vào nền tối (overlay)
+  document.getElementById('popup-overlay').addEventListener('click', function (e) {
+    if (e.target.id === 'popup-overlay') {
+      document.getElementById('popup-overlay').classList.add('hidden');
+    }
+  });
+</script>
+
 </body>
 
 </html>

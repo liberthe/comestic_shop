@@ -168,6 +168,51 @@ function renderRelatedProducts() {
   `).join('');
 }
 
+// Lấy id sản phẩm từ URL
+const urlParams = new URLSearchParams(window.location.search);
+const id = Number(urlParams.get('id'));
+const product = products.find(p => p.id === id);
+
+if (product) {
+  // Render thông tin sản phẩm
+  document.getElementById('main-image').src = product.image;
+  document.getElementById('main-image').alt = product.name;
+  document.getElementById('product-name').textContent = product.name;
+  document.getElementById('product-price').textContent = product.price.toLocaleString() + 'đ';
+  document.getElementById('product-sale').textContent = product.sale || '';
+  document.getElementById('product-short-desc').textContent = product.shortDesc || '';
+  document.getElementById('product-rating').textContent = product.rating || '';
+  document.getElementById('product-reviews').textContent = `${product.reviews || 0} đánh giá`;
+
+  // Render sao
+  let stars = '';
+  for (let i = 1; i <= 5; i++) {
+    stars += `<i class="ri-star-${i <= Math.round(product.rating) ? 'fill' : 'line'}"></i>`;
+  }
+  document.getElementById('product-stars').innerHTML = stars;
+
+  // Render features
+  document.getElementById('product-features').innerHTML = (product.features || []).map(f => `<li>${f}</li>`).join('');
+
+  // Render tabs
+  document.querySelector('#description-tab .prose').innerHTML = product.description || '';
+  document.querySelector('#ingredients-tab .space-y-2').innerHTML = product.ingredients || '';
+  document.querySelector('#usage-tab .text-gray-600').innerHTML = product.usage || '';
+
+  // Render đánh giá khách hàng
+  document.querySelector('#reviews-tab .space-y-6').innerHTML = (product.customerReviews || []).map(r => `
+    <div class="border-b pb-4">
+      <div class="flex items-center mb-2">
+        <span class="font-semibold mr-2">${r.name}</span>
+        <span class="text-yellow-400">${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}</span>
+        <span class="ml-2 text-gray-400 text-xs">${r.time}</span>
+      </div>
+      <div class="text-gray-700">${r.content}</div>
+    </div>
+  `).join('');
+}
+
+
 function updateCartCount() {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const count = cart.reduce((sum, item) => sum + item.quantity, 0);

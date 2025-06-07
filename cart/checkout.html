@@ -4,95 +4,15 @@
   <meta charset="UTF-8">
   <title>Thanh toán</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f8fb;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f8ff;
       margin: 0;
       padding: 0;
       color: #333;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 60px auto 40px auto; /* cách header phía trên */
-      background-color: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-    }
-
-    h2 {
-      color: #63aaf7;
-      margin-bottom: 24px;
-      font-size: 26px;
-      font-weight: 600;
-      text-align: center;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    textarea,
-    select {
-      width: 100%;
-      padding: 10px 14px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      box-sizing: border-box;
-      font-size: 15px;
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 80px;
-    }
-
-    .payment-methods {
-      margin-top: 20px;
-    }
-
-    .payment-methods label {
-      font-weight: normal;
-      margin-left: 4px;
-    }
-
-    .btn {
-      background-color: #63aaf7;
-      color: white;
-      padding: 14px 24px;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-      margin-top: 24px;
-      width: 100%;
-      transition: background 0.2s;
-    }
-
-    .btn:hover {
-      background-color: #0056b3;
-    }
-
-    .summary {
-      margin-top: 30px;
-      border-top: 1px solid #ccc;
-      padding-top: 20px;
-    }
-
-    .summary p {
-      font-size: 16px;
-      margin: 6px 0;
     }
   </style>
 </head>
@@ -107,50 +27,69 @@
       });
   </script>
 
-  <div class="container">
-    <h2>Thông tin thanh toán</h2>
-
-    <form onsubmit="submitOrder(event)">
-      <div class="form-group">
-        <label for="name">Họ và tên</label>
-        <input type="text" id="name" required>
+  <!-- Bố cục 2 cột -->
+  <div class="max-w-7xl mx-auto my-10 grid grid-cols-1 md:grid-cols-2 gap-10 px-4">
+    
+    <!-- Bảng sản phẩm bên trái -->
+    <div class="bg-white rounded-xl shadow-md border border-blue-100 p-6">
+      <h2 class="text-xl font-bold text-blue-500 mb-4 text-center">Sản phẩm đã chọn</h2>
+      <div id="product-list">
+        <!-- Render bằng JS -->
       </div>
+    </div>
 
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" required>
-      </div>
+    <!-- Form thanh toán bên phải -->
+    <div class="bg-white rounded-xl shadow-md border border-blue-100 p-6">
+      <h2 class="text-xl font-bold text-blue-500 mb-6 text-center">Thông tin thanh toán</h2>
 
-      <div class="form-group">
-        <label for="phone">Số điện thoại</label>
-        <input type="tel" id="phone" required>
-      </div>
+      <form onsubmit="submitOrder(event)">
+        <div class="mb-4">
+          <label for="name" class="block font-semibold text-blue-700 mb-1">Họ và tên</label>
+          <input type="text" id="name" required class="w-full border border-blue-200 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300">
+        </div>
 
-      <div class="form-group">
-        <label for="address">Địa chỉ giao hàng</label>
-        <textarea id="address" required></textarea>
-      </div>
+        <div class="mb-4">
+          <label for="email" class="block font-semibold text-blue-700 mb-1">Email</label>
+          <input type="email" id="email" required class="w-full border border-blue-200 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300">
+        </div>
 
-      <div class="form-group payment-methods">
-        <label>Hình thức thanh toán:</label><br>
-        <input type="radio" id="cod" name="payment" value="cod" checked>
-        <label for="cod">Thanh toán khi nhận hàng (COD)</label><br>
+        <div class="mb-4">
+          <label for="phone" class="block font-semibold text-blue-700 mb-1">Số điện thoại</label>
+          <input type="tel" id="phone" required class="w-full border border-blue-200 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300">
+        </div>
 
-        <input type="radio" id="bank" name="payment" value="bank">
-        <label for="bank">Chuyển khoản ngân hàng</label><br>
+        <div class="mb-4">
+          <label for="address" class="block font-semibold text-blue-700 mb-1">Địa chỉ giao hàng</label>
+          <textarea id="address" required class="w-full border border-blue-200 p-3 rounded-md min-h-[100px] focus:outline-none focus:ring-2 focus:ring-blue-300"></textarea>
+        </div>
 
-        <input type="radio" id="momo" name="payment" value="momo">
-        <label for="momo">Momo / Ví điện tử</label>
-      </div>
+        <div class="mb-4">
+          <label class="block font-semibold text-blue-700 mb-2">Hình thức thanh toán:</label>
+          <div class="flex flex-col gap-2">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="payment" value="cod" checked>
+              <i class="fas fa-box-open text-blue-500"></i> Thanh toán khi nhận hàng (COD)
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="payment" value="bank">
+              <i class="fas fa-university text-blue-500"></i> Chuyển khoản ngân hàng
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="payment" value="momo">
+              <i class="fas fa-mobile-alt text-blue-500"></i> Momo / Ví điện tử
+            </label>
+          </div>
+        </div>
 
-      <div class="summary">
-        <p><strong>Tạm tính:</strong> <span id="subtotal">0 ₫</span></p>
-        <p><strong>Phí vận chuyển:</strong> Miễn phí</p>
-        <p><strong>Tổng thanh toán:</strong> <span id="total">0 ₫</span></p>
-      </div>
+        <div class="border-t border-blue-100 pt-4 mt-4 text-gray-700">
+          <p><strong>Tạm tính:</strong> <span id="subtotal">0 ₫</span></p>
+          <p><strong>Phí vận chuyển:</strong> Miễn phí</p>
+          <p><strong>Tổng thanh toán:</strong> <span id="total">0 ₫</span></p>
+        </div>
 
-      <button type="submit" class="btn">Xác nhận đặt hàng</button>
-    </form>
+        <button type="submit" class="w-full bg-blue-400 hover:bg-blue-500 text-white font-semibold py-3 mt-6 rounded-lg transition">Xác nhận đặt hàng</button>
+      </form>
+    </div>
   </div>
 
   <div id="footer" class="mt-20"></div>
@@ -172,21 +111,45 @@
       window.location.href = "../index.html";
     }
 
-    // Xử lý hiển thị giá tạm tính và tổng thanh toán
     let subtotal = 0;
-    // Kiểm tra có sản phẩm mua ngay không
-    const buyNowProduct = localStorage.getItem('buyNowProduct');
+    let products = [];
+
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const buyNowProduct = JSON.parse(localStorage.getItem('buyNowProduct') || 'null');
+
     if (buyNowProduct) {
-      const product = JSON.parse(buyNowProduct);
-      subtotal = product.price * (product.quantity || 1);
+      products = [buyNowProduct]; // Ưu tiên sản phẩm mua ngay nếu có
     } else {
-      // Nếu không có, lấy tổng giỏ hàng
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-      subtotal = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+      products = cart;
     }
-    const formatted = Number(subtotal).toLocaleString('vi-VN') + ' ₫';
+
+    // Tính tổng
+    subtotal = products.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+    const formatted = subtotal.toLocaleString('vi-VN') + ' ₫';
     document.getElementById('subtotal').textContent = formatted;
     document.getElementById('total').textContent = formatted;
+
+    // Render danh sách sản phẩm
+    function renderProducts() {
+      const container = document.getElementById('product-list');
+      container.innerHTML = '';
+
+      products.forEach(product => {
+        const item = document.createElement('div');
+        item.className = "flex items-center gap-4 border-b border-gray-200 py-4";
+        item.innerHTML = `
+          <img src="${product.image || '#'}" alt="${product.name}" class="w-16 h-16 object-cover rounded-md border">
+          <div>
+            <h3 class="font-semibold text-gray-800">${product.name}</h3>
+            <p class="text-sm text-gray-600">Số lượng: ${product.quantity || 1}</p>
+          </div>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    renderProducts();
   </script>
+
 </body>
 </html>

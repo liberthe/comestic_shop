@@ -163,7 +163,15 @@
   </style>
 </head>
 <body>
-  <div class="header" id="header"></div>
+   <div id="header"></div>
+   
+  <script>
+    fetch('../components/header.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('header').innerHTML = data;
+      });
+  </script>
 
   <div class="container">
     <div class="map">
@@ -203,6 +211,7 @@
   
     </div>
   </div>
+
 <div class="faq-section">
   <h2>Câu hỏi thường gặp</h2>
   <div class="faq-columns">
@@ -220,14 +229,6 @@
 </div>
 
 <script>
-// Nhúng header
-fetch('../components/header.html')
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById('header').innerHTML = data;
-  });
-// Nhúng footer
-<div class="footer" id="footer"></div>
 fetch('../components/footer.html')
   .then(res => res.text())
   .then(data => {
@@ -235,5 +236,6 @@ fetch('../components/footer.html')
   });
 </script>
 
+<div class="footer" id="footer"></div>
 </body>
 </html>
