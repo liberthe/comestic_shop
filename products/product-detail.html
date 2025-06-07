@@ -44,7 +44,7 @@ body {
 
 <div id="header"></div>
 <script>
-fetch('../components/header.html')
+fetch('cosmetic_shop/components/header.html')
   .then(res => res.text())
   .then(data => {
     document.getElementById('header').innerHTML = data;
@@ -56,9 +56,9 @@ fetch('../components/header.html')
 <div class="bg-white py-4">
   <div class="max-w-7xl mx-auto px-4">
     <nav class="text-sm text-gray-600">
-      <a href="../index.html" class="hover:text-primary">Trang chủ</a>
+      <a href="cosmetic_shop/index.html" class="hover:text-primary">Trang chủ</a>
       <span class="mx-2">/</span>
-      <a href="../products/all-products.html" class="hover:text-primary">Sản phẩm</a>
+      <a href="cosmetic_shop/products/all-products.html" class="hover:text-primary">Sản phẩm</a>
       <span class="mx-2">/</span>
       <span id="product-breadcrumb" class="text-gray-800">Chi tiết sản phẩm</span>
     </nav>
@@ -174,14 +174,14 @@ fetch('../components/header.html')
 
 <div id="footer"></div>
 <script>
-fetch('../components/footer.html')
+fetch('cosmetic_shop/components/footer.html')
   .then(res => res.text())
   .then(data => {
     document.getElementById('footer').innerHTML = data;
   });
 </script>
-<script src="../assets/js/products.js"></script>
-<script src="../assets/js/product-detail.js"></script>
+<script src="cosmetic_shop/assets/js/products.js"></script>
+<script src="cosmetic_shop/assets/js/product-detail.js"></script>
 
 </body>
 </html>
