@@ -27,30 +27,24 @@ function initAccountMenu() {
     }
 
     function updateMenu() {
-        const isLoggedIn = checkLoginStatus();
-        console.log('Login status:', isLoggedIn);
+        const user = JSON.parse(localStorage.getItem('user'));
+        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
 
-        if (isLoggedIn) {
-            // Đã đăng nhập: Ẩn nút đăng nhập/đăng ký, hiện thông tin tài khoản
+        // Chọn đúng selector
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+        if (!dropdownMenu) return;
+        const loginItems = dropdownMenu.querySelectorAll('.not-logged-in');
+        const loggedInItems = dropdownMenu.querySelectorAll('.logged-in');
+        const phoneDisplay = dropdownMenu.querySelector('.user-phone');
+
+        if (user && isLoggedIn) {
             loginItems.forEach(item => item.style.display = 'none');
             loggedInItems.forEach(item => item.style.display = 'block');
-
-            // Hiển thị thông tin người dùng
-            const user = JSON.parse(localStorage.getItem('user'));
-            const phoneDisplay = dropdownMenu.querySelector('.user-phone');
-            if (phoneDisplay && user) {
-                phoneDisplay.textContent = user.phone;
-            }
+            if (phoneDisplay) phoneDisplay.textContent = user.phone || '';
         } else {
-            // Chưa đăng nhập: Hiện nút đăng nhập/đăng ký, ẩn thông tin tài khoản
             loginItems.forEach(item => item.style.display = 'block');
             loggedInItems.forEach(item => item.style.display = 'none');
-
-            // Xóa thông tin người dùng
-            const phoneDisplay = dropdownMenu.querySelector('.user-phone');
-            if (phoneDisplay) {
-                phoneDisplay.textContent = '';
-            }
+            if (phoneDisplay) phoneDisplay.textContent = '';
         }
     }
 
@@ -59,16 +53,11 @@ function initAccountMenu() {
     if (logoutBtn) {
         logoutBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            // Clear all auth data
             localStorage.removeItem('user');
             localStorage.removeItem('isLoggedIn');
             localStorage.removeItem('loginType');
             localStorage.removeItem('loginPhone');
-            
-            // Update UI immediately
             updateMenu();
-            
-            // Optional: Redirect to home page
             window.location.href = '/cosmetic_shop/index.html';
         });
     }

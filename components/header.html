@@ -114,7 +114,17 @@
 </header>
 
 <!-- Scripts -->
-<script src="/cosmetic_shop/assets/js/header.js"></script>
+<script>
+  fetch('/cosmetic_shop/components/header.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+      // Nạp lại script header.js để gắn event cho account
+      const script = document.createElement('script');
+      script.src = '/cosmetic_shop/assets/js/header.js';
+      document.body.appendChild(script);
+    });
+</script>
 </html>
 
 
