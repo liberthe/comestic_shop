@@ -333,19 +333,7 @@ fetch('/cosmetic_shop/components/header.html')
   .then(res => res.text())
   .then(data => {
     document.getElementById('header').innerHTML = data;
-    
-    // Thêm kiểm tra login status
-    const user = JSON.parse(localStorage.getItem('user'));
-    if(user) {
-      // Update UI for logged in user
-      const loginItems = document.querySelectorAll('.dropdown-menu a:not(.logged-in)');
-      const loggedInItems = document.querySelectorAll('.dropdown-menu .logged-in');
-      
-      loginItems.forEach(item => item.style.display = 'none');
-      loggedInItems.forEach(item => item.style.display = 'block');
-    }
-
-    // Load scripts
+    // Thực thi lại các script trong header
     const scripts = document.getElementById('header').querySelectorAll('script');
     scripts.forEach(oldScript => {
       const newScript = document.createElement('script');
@@ -355,6 +343,8 @@ fetch('/cosmetic_shop/components/header.html')
         newScript.textContent = oldScript.textContent;
       }
       document.body.appendChild(newScript);
+      // Xóa script cũ nếu muốn
+      // oldScript.remove();
     });
   });
 

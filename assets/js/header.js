@@ -30,11 +30,11 @@ function initAccountMenu() {
         const isLoggedIn = checkLoginStatus();
         console.log('Login status:', isLoggedIn);
 
-        // Cập nhật UI dựa trên trạng thái đăng nhập
         if (isLoggedIn) {
-            loginItems.forEach(item => item.style.display = 'block');
-            loggedInItems.forEach(item => item.style.display = 'none');
-            
+            // Đã đăng nhập: Ẩn nút đăng nhập/đăng ký, hiện thông tin tài khoản
+            loginItems.forEach(item => item.style.display = 'none');
+            loggedInItems.forEach(item => item.style.display = 'block');
+
             // Hiển thị thông tin người dùng
             const user = JSON.parse(localStorage.getItem('user'));
             const phoneDisplay = dropdownMenu.querySelector('.user-phone');
@@ -42,11 +42,11 @@ function initAccountMenu() {
                 phoneDisplay.textContent = user.phone;
             }
         } else {
-            // Reset và hiển thị menu đăng nhập/đăng ký
+            // Chưa đăng nhập: Hiện nút đăng nhập/đăng ký, ẩn thông tin tài khoản
             loginItems.forEach(item => item.style.display = 'block');
             loggedInItems.forEach(item => item.style.display = 'none');
-            
-            // Clear user info
+
+            // Xóa thông tin người dùng
             const phoneDisplay = dropdownMenu.querySelector('.user-phone');
             if (phoneDisplay) {
                 phoneDisplay.textContent = '';
