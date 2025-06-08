@@ -1,0 +1,53 @@
+<!DOCTYPE html> 
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chi tiết bài viết - Elaria Blog</title>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#1E3D59',secondary:'#4A90E2'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<link rel="stylesheet" href="/cosmetic_shop/assets/css/blog-detail.css"/>
+</head>
+<body style="background-image: linear-gradient(rgba(255,255,255,0.90), rgba(176,224,230,0.15)), url('https://img.freepik.com/premium-photo/background-decorative-cosmetics-blue-white-concept-valentine-s-day-composition-is-flat-lying-lipstick-flower-heart-leaf-nail-polish_76673-1456.jpg'); background-size: cover; background-position: center; backdrop-filter: blur(3px);">
+  
+  <!-- Header -->
+  <div id="header"></div>
+ 
+  <!-- Nội dung chi tiết bài -->
+  <div class="post-container" id="post-container"></div>
+ 
+  <!--Lấy nội dung bài-->
+  <script type="module">
+    document.addEventListener("DOMContentLoaded", async () => {
+      const postsModule = await import("/cosmetic_shop/assets/js/blog-detail.js");
+      const posts = postsModule.default;
+
+      const id = new URLSearchParams(window.location.search).get("id");
+      const post = posts[id];
+      const container = document.getElementById("post-container");
+
+      if (post) {
+        container.innerHTML = `
+          <h1>${post.title}</h1>
+          <div class="date">${post.date}</div>
+          <img src="${post.image}" alt="Ảnh blog" class="feature-img">
+          <div class="post-content">${post.content}</div>
+          <a href="blog-list.html" class="back-link">← Quay lại danh sách blog</a>
+        `;
+      } else {
+        container.innerHTML = `
+          <h1>Cùng tham quan chuyên mục của Elaria nhé ^^</h1>
+          <p><a href='blog-list.html' style='color:#4a90e2; font-weight:bold; text-decoration:underline;'>Nhấn để đến trang blog</a></p>
+        `;
+      }
+    });
+  </script>
+    <!-- Footer -->
+   <div id="footer"></div>
+</body>
+</html>

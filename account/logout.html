@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Đăng xuất</title>
+  <meta http-equiv="refresh" content="1;url=/cosmetic_shop/index.html">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f8ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .message {
+      text-align: center;
+      background-color: white;
+      padding: 30px 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .message h2 {
+      color: #1e90ff;
+      margin-bottom: 10px;
+    }
+    .message p {
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="message">
+    <h2>Đang đăng xuất...</h2>
+    <p>Bạn sẽ được chuyển về trang chủ sau giây lát.</p>
+  </div>
+
+  <script>
+    // Xoá thông tin đăng nhập từ localStorage
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("loginPhone");
+    localStorage.removeItem("loginType");
+    localStorage.removeItem("loggedInUser");
+  </script>
+</body>
+</html>

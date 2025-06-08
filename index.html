@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elaria - Korean Beauty</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#1E3D59',secondary:'#4A90E2'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<link rel="stylesheet" href="/cosmetic_shop/assets/css/index.css">
+  <link rel="stylesheet" href="/cosmetic_shop/assets/css/banner.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Montserrat', sans-serif;
+scroll-behavior: smooth;
+}
+.parallax {
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+.newsletter-input:focus {
+outline: none;
+border-color: #15334d;
+}
+ #contact-icon {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #1e88e5;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+  #contact-iframe-overlay {
+    display: none; /* ✅ Chỉ để dòng này */
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #contact-iframe-container {
+    width: 90%;
+    max-width: 500px;
+    height: 600px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    background-color: white;
+  }
+
+  #contact-iframe-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+</style>
+<!-- Nút mở form -->
+<div id="contact-icon" onclick="toggleContactForm()">
+  <i class="fas fa-paper-plane"></i> Liên hệ
+</div>
+<!-- Popup trung tâm -->
+<div id="contact-iframe-overlay" onclick="closeContactForm(event)">
+  <div id="contact-iframe-container">
+    <iframe src="/cosmetic_shop/contact/contact_form.html"></iframe>
+  </div>
+
+</div>
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<script>
+  function toggleContactForm() {
+    document.getElementById('contact-iframe-overlay').style.display = 'flex';
+  }
+
+  function closeContactForm(event) {
+    // Đóng khi click bên ngoài iframe
+    if (event.target.id === 'contact-iframe-overlay') {
+      document.getElementById('contact-iframe-overlay').style.display = 'none';
+    }
+  }
+</script>
+</head>
+<body class="bg-white">
+  <!-- Popup ảnh khuyến mãi -->
+<div id="popup-overlay" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999] hidden">
+  <div class="relative w-[90vw] max-w-[400px]">
+  <img src="/cosmetic_shop/assets/images/popup.png" alt="Khuyến mãi" class="w-full h-auto rounded-xl shadow-xl">
+    <button id="close-popup" class="absolute top-2 right-2 text-white text-2xl font-bold">&times;</button>
+  </div>
+</div>
+
+<div id="header"></div>
+
+   <!-- Hero -->
+<div class="slider-container w-full overflow-hidden">
+  <div class="slider">
+    <div class="slide bg-primary">
+      <img src="/cosmetic_shop/assets/images/hero.png" class="w-full h-auto object-cover max-h-[350px] md:max-h-[500px]" alt="Slide 1">
+    </div>
+
+    <div class="slide bg-primary">
+      <img src="/cosmetic_shop/assets/images/hero11.png" class="w-full h-full object-cover" alt="Slide 2">
+    </div>
+
+    <div class="slide bg-primary">
+      <img src="/cosmetic_shop/assets/images/hero12.png" class="w-full h-full object-cover" alt="Slide 3">
+    </div>
+ <div class="slider-nav">
+    <div class="slider-dot active"></div>
+    <div class="slider-dot"></div>
+    <div class="slider-dot"></div>
+  </div>
+  </div>  
+ 
+</div>
+
+
+
+
+<!-- Flash Sale Banner -->
+<section class="bg-gradient-to-r from-primary to-secondary py-6 text-white">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center justify-between">
+            <div class="flex items-center mb-4 md:mb-0">
+                <div class="w-10 h-10 flex items-center justify-center">
+                    <i class="ri-flashlight-line text-2xl"></i>
+                </div>
+                <h2 class="text-2xl font-bold ml-2">FLASH SALE</h2>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <div class="text-center">
+                    <div id="flash-hour" class="bg-white text-primary rounded-lg w-10 h-10 flex items-center justify-center font-bold">00</div>
+                    <div class="text-xs mt-1">Giờ</div>
+                </div>
+                <div class="text-center">
+                    <div id="flash-minute" class="bg-white text-primary rounded-lg w-10 h-10 flex items-center justify-center font-bold">00</div>
+                    <div class="text-xs mt-1">Phút</div>
+                </div>
+                <div class="text-center">
+                    <div id="flash-second" class="bg-white text-primary rounded-lg w-10 h-10 flex items-center justify-center font-bold">00</div>
+                    <div class="text-xs mt-1">Giây</div>
+                </div>
+            </div>
+
+            <a href="/cosmetic_shop/promotions/promotions.html" class="bg-white text-primary px-6 py-2 rounded-button font-medium hover:bg-gray-100 transition-colors whitespace-nowrap">Xem tất cả</a>
+        </div>
+    </div>
+</section>
+
+    <!-- Flash Sale Products -->
+<!-- Flash Sale Products Carousel -->
+<section class="py-10 bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-2xl font-bold mb-6 text-gray-800">Sản phẩm Flash Sale</h2>
+    <div class="relative">
+      <button id="carousel-prev" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white shadow px-2 py-1 rounded-full z-10"><i class="ri-arrow-left-s-line"></i></button>
+      <div id="carousel-track" class="flex transition-transform duration-500"></div>
+      <button id="carousel-next" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white shadow px-2 py-1 rounded-full z-10"><i class="ri-arrow-right-s-line"></i></button>
+    </div>
+  </div>
+</section>
+<script src="/cosmetic_shop/assets/js/products.js"></script>
+
+  <!-- Categories -->
+    <section class="py-10">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800">Danh Mục Sản Phẩm</h2>
+            <div id="category-list" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4"></div>
+        </div>
+    </section>
+
+
+ <!-- Best Sellers -->
+    <section class="py-10 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">Sản Phẩm Bán Chạy</h2>
+                <button id="bestseller-viewall" class="text-primary hover:underline flex items-center whitespace-nowrap">
+                    Xem tất cả
+                    <i class="ri-arrow-right-line ml-1"></i>
+                </button>
+            </div>
+            <div class="relative">
+              <button id="bestseller-prev" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white shadow px-2 py-1 rounded-full z-10"><i class="ri-arrow-left-s-line"></i></button>
+              <div id="bestseller-track" class="flex transition-transform duration-500"></div>
+              <button id="bestseller-next" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white shadow px-2 py-1 rounded-full z-10"><i class="ri-arrow-right-s-line"></i></button>
+            </div>
+        </div>
+    </section>
+
+  <!-- Featured Banner -->
+    <section class="py-8 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="bg-white rounded-xl overflow-hidden shadow-lg">
+                <div class="flex flex-col md:flex-row">
+                   <div class="md:w-1/2 p-4 md:p-6 lg:p-8 flex flex-col justify-center items-center text-center">
+
+                      
+                        <span class="text-primary font-semibold mb-4">BỘ SƯU TẬP MỚI</span>
+                        <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-6">Bộ Sản Phẩm Dưỡng Da Cấp Ẩm Chuyên Sâu</h2>
+                        <p class="text-gray-600 mb-8">Bộ sản phẩm dưỡng da toàn diện ứng dụng công nghệ Aqua Boost từ Hàn Quốc, giúp cấp ẩm tức thì và duy trì độ ẩm suốt 72 giờ. Các dưỡng chất thẩm thấu sâu vào da, hỗ trợ phục hồi hàng rào bảo vệ tự nhiên, giữ nước tối ưu ngay cả trong điều kiện khô hanh hoặc ngồi điều hòa lâu.
+
+Bộ sản phẩm gồm 5 bước: sữa rửa mặt, toner cân bằng, serum cấp ẩm, kem dưỡng chuyên sâu và mặt nạ ngủ – mang đến chu trình chăm sóc da hoàn chỉnh, tiện lợi và hiệu quả.
+
+Thành phần chiết xuất từ nha đam, hoa cúc, nước khoáng lên men và hyaluronic acid, có tác dụng làm dịu, phục hồi và cấp ẩm sâu. Kết cấu mỏng nhẹ, không nhờn rít, phù hợp cho mọi loại da, đặc biệt là da khô và nhạy cảm.
+
+Không chứa paraben, cồn hay hương liệu, an toàn cho da nhạy cảm và có thể sử dụng hằng ngày để duy trì làn da ẩm mịn, khỏe mạnh và rạng rỡ.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="/cosmetic_shop/products/all-products.html?sort=newest" 
+                               class="bg-secondary text-white px-8 py-3 rounded-button font-medium transition duration-300 hover:bg-opacity-90 whitespace-nowrap">
+                                MUA NGAY
+                            </a>
+                            <a href="/cosmetic_shop/products/all-products.html?sort=newest" 
+                               class="bg-white border border-secondary text-secondary px-8 py-3 rounded-button font-medium transition duration-300 hover:bg-gray-50 whitespace-nowrap">
+                                XEM CHI TIẾT
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                      <img src="/cosmetic_shop/assets/images/feature banner 3.jpg" alt="Bộ sản phẩm dưỡng da" class="w-full h-auto object-cover object-top max-h-[600px]">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!--REVIEW-->
+<section class="py-10">
+  <div class="container mx-auto px-4">
+    <h2 class="text-2xl font-bold mb-6 text-gray-800">Đánh Giá Từ Khách Hàng</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!-- Review 1 -->
+      <div class="rounded-xl shadow-sm overflow-hidden bg-[#e6f2f8] p-6">
+        <div class="bg-white rounded-lg py-2 px-4 text-center mb-4 font-bold text-gray-800">
+          WATER BLUE CREAM
+        </div>
+        <div class="flex mb-4 text-sm text-gray-700">
+          <i class="ri-double-quotes-l text-primary text-2xl mr-2"></i>
+          Những thành phần lành tính như Beta Glucan, Ceramide sẽ tái tạo làn da...
+        </div>
+        <div class="font-semibold text-gray-800 mb-4">JENNY KIM</div>
+        <div class="grid gap-2 text-sm text-gray-700">
+          <div class="bg-white rounded-lg py-2 px-3 flex justify-between">
+            <span>Sửa chữa tổn thương da</span><span class="badge">92.5%</span>
+          </div>
+          <div class="bg-white rounded-lg py-2 px-3 flex justify-between">
+            <span>Cấp ẩm sâu đến 10 lớp da</span><span class="badge">89.3%</span>
+          </div>
+          <div class="bg-white rounded-lg py-2 px-3 flex justify-between">
+            <span>Giảm kí hiệu da chết</span><span class="badge">85.2%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review 2 -->
+      <div class="rounded-xl shadow-sm overflow-hidden bg-[#fbe9d9] p-6">
+        <div class="bg-white rounded-lg py-2 px-4 text-center mb-4 font-bold text-gray-800">
+          RADIAN-C CREAM
+        </div>
+        <div class="flex mb-4 text-sm text-gray-700">
+          <i class="ri-double-quotes-l text-[#f4a261] text-2xl mr-2"></i>
+          Sản phẩm có Vitamin C, Vitamin E và Glycerin như một chất giữ độ ẩm cho da...
+        </div>
+        <div class="font-semibold text-gray-800 mb-4">KIM JISOO</div>
+        <div class="grid gap-2 text-sm text-gray-700">
+          <div class="bg-white rounded-lg py-2 px-3 flex justify-between">
+            <span>Làm bỏ đốm nâu, đồng nội mắt</span><span class="badge text-[#f4a261] bg-[#f4a261]/20">91.5%</span>
+          </div>
+          <div class="bg-white rounded-lg py-2 px-3 flex justify-between">
+            <span>Làm sáng và thúc đẩy màu da</span><span class="badge text-[#f4a261] bg-[#f4a261]/20">89.9%</span>
+          </div>
+          <div class="bg-white rounded-lg py-2 px-3 flex justify-between">
+            <span>Cống thức dịu nhẹ, an toàn cho da</span><span class="badge text-[#f4a261] bg-[#f4a261]/20">87.7%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review 3 -->
+      <div class="rounded-xl shadow-sm overflow-hidden bg-[#f0e9d8] p-6">
+        <div class="bg-white rounded-lg py-2 px-4 text-center mb-4 font-bold text-gray-800">
+          PERFECT RENEW 3X
+        </div>
+        <div class="flex mb-4 text-sm text-gray-700">
+          <i class="ri-double-quotes-l text-[#e9c46a] text-2xl mr-2"></i>
+          Phần trăm retinol thấp nhưng lại hiệu quả vì không có tác dụng phụ...
+        </div>
+        <div class="font-semibold text-gray-800 mb-4">BS. TÔ LAN PHƯƠNG</div>
+        <div class="grid gap-2 text-sm text-gray-700">
+          <div class="bg-white rounded-lg py-2 px-3 flex justify-between">
+            <span>Cải thiện kết cấu và giảm nếp nhăn</span><span class="badge text-[#e9c46a] bg-[#e9c46a]/20">94.8%</span>
+          </div>
+          <div class="bg-white rounded-lg py-2 px-3 flex justify-between">
+            <span>Cải thiện vẻ bề ngoài da sần chác</span><span class="badge text-[#e9c46a] bg-[#e9c46a]/20">93.8%</span>
+          </div>
+          <div class="bg-white rounded-lg py-2 px-3 flex justify-between">
+            <span>Tăng cường độ rạng rỡ cho da</span><span class="badge text-[#e9c46a] bg-[#e9c46a]/20">89.6%</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<script src="/cosmetic_shop/assets/js/products.js"></script>
+<script src="/cosmetic_shop/assets/js/main.js"></script>
+<script src="/cosmetic_shop/assets/js/banner.js"></script>
+<div id="footer"></div>
+<script>
+fetch('/cosmetic_shop/components/header.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('header').innerHTML = data;
+    // Thực thi lại các script trong header
+    const scripts = document.getElementById('header').querySelectorAll('script');
+    scripts.forEach(oldScript => {
+      const newScript = document.createElement('script');
+      if (oldScript.src) {
+        newScript.src = oldScript.src;
+      } else {
+        newScript.textContent = oldScript.textContent;
+      }
+      document.body.appendChild(newScript);
+      // Xóa script cũ nếu muốn
+      // oldScript.remove();
+    });
+  });
+
+fetch('/cosmetic_shop/components/footer.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('footer').innerHTML = data;
+  });
+</script>
+<script>
+  // Hiển thị popup sau khi tải trang
+  window.addEventListener('load', function () {
+    const popup = document.getElementById('popup-overlay');
+    popup.classList.remove('hidden');
+  });
+
+  // Ẩn popup khi bấm nút đóng hoặc click ra ngoài
+  document.getElementById('close-popup').addEventListener('click', function () {
+    document.getElementById('popup-overlay').classList.add('hidden');
+  });
+
+  // Ẩn popup nếu click vào nền tối (overlay)
+  document.getElementById('popup-overlay').addEventListener('click', function (e) {
+    if (e.target.id === 'popup-overlay') {
+      document.getElementById('popup-overlay').classList.add('hidden');
+    }
+  });
+</script>
+
+</body>
+
+</html>

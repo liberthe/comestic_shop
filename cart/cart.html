@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Giỏ hàng</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f8fb;
+      color: #333;
+    }
+
+    .main-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-icon {
+      position: relative;
+      cursor: pointer;
+      font-size: 24px;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: red;
+      color: white;
+      font-size: 12px;
+      padding: 2px 6px;
+      border-radius: 50%;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    th {
+      background-color: #63aaf7;
+      color: white;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+
+    .product-img {
+      width: 80px;
+      margin-bottom: 5px;
+    }
+
+    input[type="number"] {
+      width: 60px;
+      padding: 5px;
+    }
+
+    .btn {
+      background: #63aaf7;
+      padding: 12px 20px;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      width: 100%;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+
+    .btn:hover {
+      background: #0056b3;
+    }
+
+    button {
+      padding: 6px 12px;
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #c82333;
+    }
+  </style>
+</head>
+<body>
+  <div id="header"></div>
+  <script>
+    fetch('/cosmetic_shop/components/header.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('header').innerHTML = data;
+      });
+  </script>
+
+  <div class="main-container">
+    <div class="header">
+      <h2>🛒 Giỏ hàng của bạn</h2>
+      <div class="cart-icon" onclick="window.location.href='/cosmetic_shop/cart/cart.html'">
+        🛒 <span class="cart-count" id="cartCount">0</span>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap gap-6 mt-8 w-full">
+      <!-- Bảng giỏ hàng -->
+      <div class="flex-[3] w-full lg:w-3/4">
+        <table id="cartTable">
+          <thead>
+            <tr>
+              <th>Sản phẩm</th>
+              <th>Giá tiền</th>
+              <th>Số lượng</th>
+              <th>Thành tiền</th>
+              <th>Thao tác</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <!-- Tổng kết đơn -->
+      <div class="flex-1 bg-white p-5 rounded-xl shadow h-fit w-full lg:w-1/4">
+        <h3 class="text-[#007BFF] text-xl font-semibold mb-4">Hóa đơn của bạn</h3>
+        <p>Tạm tính: <strong id="subtotal">0 ₫</strong></p>
+        <p>Giảm giá: <strong>0 ₫</strong></p>
+        <hr class="my-2">
+        <p><strong>Tổng cộng: <span id="totalPrice">0 ₫</span></strong></p>
+        <button class="btn" onclick="proceedToCheckout()">Tiến hành đặt hàng</button>
+      </div>
+    </div>
+  </div>
+<div id="footer"></div>
+<script>
+fetch('/cosmetic_shop/components/footer.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('footer').innerHTML = data;
+  });
+</script>
+  <script>
+    function loadCart() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const tbody = document.querySelector('#cartTable tbody');
+      const cartCount = document.getElementById('cartCount');
+      const totalPriceEl = document.getElementById('totalPrice');
+      const subtotalEl = document.getElementById('subtotal');
+
+      tbody.innerHTML = '';
+      let total = 0;
+      cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+      cart.forEach((item, index) => {
+  const itemTotal = item.price * item.quantity;
+  total += itemTotal;
+  const tr = document.createElement('tr');
+  tr.innerHTML = `
+    <td>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <img src="${item.image}" class="product-img">
+        <span style="font-size: 14px;">${item.name}</span>
+      </div>
+    </td>
+    <td style="font-size: 12.5px;">${item.price.toLocaleString()} ₫</td>
+  <td><input type="number" min="1" value="${item.quantity}" onchange="updateQuantity(${index}, this.value)"></td>
+  <td style="font-size: 13px;">${itemTotal.toLocaleString()} ₫</td>
+  <td><button onclick="removeItem(${index})">Xoá</button></td>
+  `;
+  tbody.appendChild(tr);
+});
+      subtotalEl.textContent = total.toLocaleString() + ' ₫';
+      totalPriceEl.textContent = total.toLocaleString() + ' ₫';
+    }
+
+    function updateQuantity(index, newQuantity) {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart[index].quantity = parseInt(newQuantity);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      loadCart();
+    }
+
+    function removeItem(index) {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      loadCart();
+    }
+
+    loadCart();
+    function goToCheckout() {
+  const totalPrice = document.getElementById('totalPrice').textContent.replace(/\D/g, '');
+  localStorage.setItem('checkoutTotal', totalPrice); // lưu tổng tiền (chỉ số)
+  window.location.href = 'checkout.html';
+}
+function proceedToCheckout() {
+  localStorage.removeItem('buyNowProduct'); // xoá nếu từng bấm "Mua ngay"
+  window.location.href = 'checkout.html';
+}
+
+  </script>
+</body>
+</html>

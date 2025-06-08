@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Thanh toán</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f8ff;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header"></div>
+  <script>
+    fetch('/cosmetic_shop/components/header.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('header').innerHTML = data;
+      });
+  </script>
+
+  <!-- Bố cục 2 cột -->
+  <div class="max-w-7xl mx-auto my-10 grid grid-cols-1 md:grid-cols-2 gap-10 px-4">
+    
+    <!-- Bảng sản phẩm bên trái -->
+    <div class="bg-white rounded-xl shadow-md border border-blue-100 p-6">
+      <h2 class="text-xl font-bold text-blue-500 mb-4 text-center">Sản phẩm đã chọn</h2>
+      <div id="product-list">
+        <!-- Render bằng JS -->
+      </div>
+    </div>
+
+    <!-- Form thanh toán bên phải -->
+    <div class="bg-white rounded-xl shadow-md border border-blue-100 p-6">
+      <h2 class="text-xl font-bold text-blue-500 mb-6 text-center">Thông tin thanh toán</h2>
+
+      <form onsubmit="submitOrder(event)">
+        <div class="mb-4">
+          <label for="name" class="block font-semibold text-blue-700 mb-1">Họ và tên</label>
+          <input type="text" id="name" required class="w-full border border-blue-200 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300">
+        </div>
+
+        <div class="mb-4">
+          <label for="email" class="block font-semibold text-blue-700 mb-1">Email</label>
+          <input type="email" id="email" required class="w-full border border-blue-200 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300">
+        </div>
+
+        <div class="mb-4">
+          <label for="phone" class="block font-semibold text-blue-700 mb-1">Số điện thoại</label>
+          <input type="tel" id="phone" required class="w-full border border-blue-200 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300">
+        </div>
+
+        <div class="mb-4">
+          <label for="address" class="block font-semibold text-blue-700 mb-1">Địa chỉ giao hàng</label>
+          <textarea id="address" required class="w-full border border-blue-200 p-3 rounded-md min-h-[100px] focus:outline-none focus:ring-2 focus:ring-blue-300"></textarea>
+        </div>
+
+        <div class="mb-4">
+          <label class="block font-semibold text-blue-700 mb-2">Hình thức thanh toán:</label>
+          <div class="flex flex-col gap-2">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="payment" value="cod" checked>
+              <i class="fas fa-box-open text-blue-500"></i> Thanh toán khi nhận hàng (COD)
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="payment" value="bank">
+              <i class="fas fa-university text-blue-500"></i> Chuyển khoản ngân hàng
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="payment" value="momo">
+              <i class="fas fa-mobile-alt text-blue-500"></i> Momo / Ví điện tử
+            </label>
+          </div>
+        </div>
+
+        <div class="border-t border-blue-100 pt-4 mt-4 text-gray-700">
+          <p><strong>Tạm tính:</strong> <span id="subtotal">0 ₫</span></p>
+          <p><strong>Phí vận chuyển:</strong> Miễn phí</p>
+          <p><strong>Tổng thanh toán:</strong> <span id="total">0 ₫</span></p>
+        </div>
+
+        <button type="submit" class="w-full bg-blue-400 hover:bg-blue-500 text-white font-semibold py-3 mt-6 rounded-lg transition">Xác nhận đặt hàng</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="footer" class="mt-20"></div>
+  <script>
+    fetch('/cosmetic_shop/components/footer.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      });
+  </script>
+
+  <script>
+    function submitOrder(event) {
+      event.preventDefault();
+      alert("Đặt hàng thành công! Cảm ơn bạn đã mua sắm.");
+      localStorage.removeItem('cart');
+      localStorage.removeItem('checkoutTotal');
+      localStorage.removeItem('buyNowProduct');
+      window.location.href = "/cosmetic_shop/index.html";
+    }
+
+    let subtotal = 0;
+    let products = [];
+
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const buyNowProduct = JSON.parse(localStorage.getItem('buyNowProduct') || 'null');
+
+    if (buyNowProduct) {
+      products = [buyNowProduct]; // Ưu tiên sản phẩm mua ngay nếu có
+    } else {
+      products = cart;
+    }
+
+    // Tính tổng
+    subtotal = products.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+    const formatted = subtotal.toLocaleString('vi-VN') + ' ₫';
+    document.getElementById('subtotal').textContent = formatted;
+    document.getElementById('total').textContent = formatted;
+
+    // Render danh sách sản phẩm
+    function renderProducts() {
+      const container = document.getElementById('product-list');
+      container.innerHTML = '';
+
+      products.forEach(product => {
+        const item = document.createElement('div');
+        item.className = "flex items-center gap-4 border-b border-gray-200 py-4";
+        item.innerHTML = `
+          <img src="${product.image || '#'}" alt="${product.name}" class="w-16 h-16 object-cover rounded-md border">
+          <div>
+            <h3 class="font-semibold text-gray-800">${product.name}</h3>
+            <p class="text-sm text-gray-600">Số lượng: ${product.quantity || 1}</p>
+          </div>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    renderProducts();
+  </script>
+
+</body>
+</html>

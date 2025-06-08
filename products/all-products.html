@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tất Cả Sản Phẩm - Elaria</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#1E3D59',secondary:'#4A90E2'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+.product-card {
+  transition: all 0.3s ease;
+}
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+.action-btn {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.product-card:hover .action-btn {
+  opacity: 1;
+}
+.filter-btn.active {
+  background-color: #4A90E2;
+  color: white;
+}
+</style>
+</head>
+<body class="bg-gray-50">
+ <div id="header"></div>
+<script>
+fetch('/cosmetic_shop/components/header.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('header').innerHTML = data;
+  });
+</script>
+
+<!-- Breadcrumb -->
+<div class="bg-white py-4">
+  <div class="max-w-7xl mx-auto px-4">
+    <nav class="text-sm text-gray-600">
+      <a href="/cosmetic_shop/index.html" class="hover:text-primary">Trang chủ</a>
+      <span class="mx-2">/</span>
+      <span class="text-gray-800">Tất cả sản phẩm</span>
+    </nav>
+  </div>
+</div>
+
+<!-- Main Content -->
+<div class="max-w-7xl mx-auto px-4 py-8">
+  <div class="flex flex-col lg:flex-row gap-8">
+    
+    <!-- Sidebar Filters -->
+    <aside class="lg:w-1/4">
+      <div class="bg-white rounded-lg shadow-sm p-6 sticky top-4">
+        <h3 class="text-lg font-semibold mb-4">Bộ Lọc</h3>
+        
+        <!-- Category Filter -->
+        <div class="mb-6">
+          <h4 class="font-medium mb-3">Danh Mục</h4>
+          <div class="space-y-2">
+            <button class="filter-btn block w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 transition-colors" data-category="all">Tất cả</button>
+            <button class="filter-btn block w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 transition-colors" data-category="duong-am">Dưỡng Ẩm</button>
+            <button class="filter-btn block w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 transition-colors" data-category="chong-nang">Chống Nắng</button>
+            <button class="filter-btn block w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 transition-colors" data-category="serum">Serum</button>
+            <button class="filter-btn block w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 transition-colors" data-category="mat-na">Mặt Nạ</button>
+            <button class="filter-btn block w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 transition-colors" data-category="mat">Mắt</button>
+            <button class="filter-btn block w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 transition-colors" data-category="toner">Toner</button>
+            <button class="filter-btn block w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 transition-colors" data-category="tay-trang">Tẩy trang</button>
+
+          </div>
+        </div>
+        
+        <!-- Price Filter -->
+        <div class="mb-6">
+          <h4 class="font-medium mb-3">Giá</h4>
+          <div class="space-y-2">
+            <button class="price-filter block w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 transition-colors" data-price="all">Tất cả</button>
+            <button class="price-filter block w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 transition-colors" data-price="0-200">Dưới 200.000₫</button>
+            <button class="price-filter block w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 transition-colors" data-price="200-400">200.000₫ - 400.000₫</button>
+            <button class="price-filter block w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 transition-colors" data-price="400-600">400.000₫ - 600.000₫</button>
+            <button class="price-filter block w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 transition-colors" data-price="600+">Trên 600.000₫</button>
+          </div>
+        </div>
+        
+        <!-- Rating Filter -->
+        <div class="mb-6">
+          <h4 class="font-medium mb-3">Đánh Giá</h4>
+          <div class="space-y-2">
+            <button class="rating-filter flex items-center w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 transition-colors" data-rating="5">
+              <div class="flex text-yellow-400 text-sm mr-2">
+                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+              </div>
+              <span class="text-sm">5 sao</span>
+            </button>
+            <button class="rating-filter flex items-center w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 transition-colors" data-rating="4">
+              <div class="flex text-yellow-400 text-sm mr-2">
+                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-line"></i>
+              </div>
+              <span class="text-sm">4 sao trở lên</span>
+            </button>
+          </div>
+        </div>
+        
+        <button class="w-full bg-primary text-white py-2 px-4 rounded-md hover:bg-opacity-90 transition-colors" onclick="clearFilters()">Xóa Bộ Lọc</button>
+      </div>
+    </aside>
+    
+    <!-- Products Grid -->
+    <main class="lg:w-3/4">
+      <!-- Sort Bar -->
+      <div class="bg-white rounded-lg shadow-sm p-4 mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div>
+          <span class="text-gray-600">Hiển thị <span id="product-count">24</span> sản phẩm</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-sm text-gray-600">Sắp xếp:</span>
+          <select class="border border-gray-300 rounded-md px-3 py-1 text-sm" id="sort-select">
+            <option value="default">Mặc định</option>
+            <option value="price-low">Giá thấp đến cao</option>
+            <option value="price-high">Giá cao đến thấp</option>
+            <option value="rating">Đánh giá cao nhất</option>
+            <option value="newest">Mới nhất</option>
+          </select>
+        </div>
+      </div>
+      
+      <!-- Products Grid -->
+      <div class="grid grid-cols-3 gap-6" id="products-grid">
+        <!-- Products will be populated by JavaScript -->
+      </div>
+      
+      <div class="flex justify-center mt-12">
+  <nav class="flex space-x-2" id="pagination">
+    <!-- Nút phân trang sẽ tạo bằng JS -->
+   
+  </nav>
+</div>
+    </main>
+  </div>
+</div>
+
+<div id="footer"></div>
+<script>
+fetch('/cosmetic_shop/components/footer.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('footer').innerHTML = data;
+  });
+</script>
+<script src="/cosmetic_shop/assets/js/products.js"></script>
+<script src="/cosmetic_shop/assets/js/all-products.js"></script>
+
+</body>
+</html>
