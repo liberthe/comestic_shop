@@ -38,6 +38,62 @@ body {
   border-bottom: 2px solid #4A90E2;
   color: #4A90E2;
 }
+/* Product Detail Responsive */
+@media (max-width: 767px) {
+  /* Single column layout on mobile */
+  .grid.grid-cols-1.lg\\:grid-cols-2 {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  /* Product image mobile */
+  #main-image {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Quantity controls mobile */
+  .flex.items-center.space-x-4 {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  /* Buttons stack on mobile */
+  .flex.space-x-4 {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .flex.space-x-4 button {
+    width: 100%;
+  }
+  
+  /* Tabs scroll horizontally on mobile */
+  .flex.space-x-8 {
+    overflow-x: auto;
+    padding: 0 20px;
+    gap: 30px;
+  }
+  
+  .tab-button {
+    white-space: nowrap;
+    min-width: max-content;
+  }
+  
+  /* Related products - 2 columns */
+  .grid.grid-cols-2.md\\:grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  } 
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Tablet adjustments */
+  .grid.grid-cols-2.md\\:grid-cols-4 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 </style>
 </head>
 <body class="bg-gray-50">

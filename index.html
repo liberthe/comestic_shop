@@ -71,6 +71,310 @@ border-color: #15334d;
     height: 100%;
     border: none;
   }
+  /* Homepage Responsive */
+@media (max-width: 767px) {
+  /* Hero slider mobile */
+  .slider-container {
+    height: 250px;
+    border-radius: 0 0 16px 16px;
+  }
+
+  .slider {
+    height: 250px;
+  }
+
+  .slider img {
+    max-height: 250px;
+  }
+
+  .slider-nav {
+    bottom: 12px;
+    gap: 8px;
+  }
+
+  .slider-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  /* Categories grid mobile */
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 15px 0;
+  }
+
+  .category-card {
+    padding: 20px 15px;
+    border-radius: 12px;
+  }
+
+  .category-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+
+  .category-name {
+    font-size: 14px;
+  }
+
+  .category-count {
+    font-size: 12px;
+  }
+
+  /* Flash sale mobile */
+  .flash-sale .container {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .flash-timer {
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .timer-unit {
+    min-width: 50px;
+    padding: 6px;
+  }
+
+  .timer-number {
+    font-size: 20px;
+  }
+
+  .timer-label {
+    font-size: 10px;
+  }
+
+  /* Product carousels mobile */
+  .product-carousel {
+    padding: 0 15px;
+  }
+
+  .carousel-track {
+    gap: 15px;
+  }
+
+  .product-card {
+    min-width: 200px;
+    border-radius: 12px;
+  }
+
+  .product-info {
+    padding: 15px;
+  }
+
+  .product-name {
+    font-size: 14px;
+  }
+
+  .current-price {
+    font-size: 16px;
+  }
+
+  .carousel-nav {
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+
+  .carousel-prev {
+    left: 5px;
+  }
+
+  .carousel-next {
+    right: 5px;
+  }
+
+  /* Featured banner mobile */
+  .featured-banner {
+    border-radius: 16px;
+    margin: 20px 0;
+  }
+
+  .featured-content {
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .featured-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .featured-description {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  .featured-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 14px 24px;
+    text-align: center;
+    display: block;
+  }
+
+  /* Reviews grid mobile */
+  .reviews-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .review-card {
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+
+  .review-author {
+    font-size: 16px;
+  }
+
+  .stat-item {
+    padding: 10px 14px;
+  }
+
+  .stat-label {
+    font-size: 13px;
+  }
+
+  /* Contact icon mobile */
+  .contact-icon {
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+
+  /* Popup mobile */
+  .popup-content {
+    width: 95vw;
+    max-height: 85vh;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Tablet adjustments */
+  .slider-container {
+    height: 350px;
+  }
+
+  .slider {
+    height: 350px;
+  }
+
+  /* Categories grid tablet */
+  .categories-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  /* Reviews grid tablet */
+  .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  /* Featured banner tablet */
+  .featured-content {
+    padding: 50px 30px;
+  }
+
+  .featured-title {
+    font-size: 2.5rem;
+  }
+
+  /* Product carousel tablet */
+  .product-card {
+    min-width: 240px;
+  }
+
+  .carousel-track {
+    gap: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Desktop enhancements */
+  .slider-container {
+    height: 500px;
+  }
+
+  .categories-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 24px;
+  }
+
+  .reviews-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .product-card {
+    min-width: 280px;
+  }
+}
+
+/* Large desktop */
+@media (min-width: 1280px) {
+  .categories-grid {
+    gap: 30px;
+  }
+
+  .featured-title {
+    font-size: 3.5rem;
+  }
+
+  .product-carousel {
+    padding: 0 60px;
+  }
+}
+
+/* Smooth scrolling and performance */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus states for keyboard navigation */
+button:focus,
+a:focus {
+  outline: 2px solid #4a90e2;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .product-card {
+    border: 2px solid #000;
+  }
+  
+  .btn-primary {
+    border: 2px solid #000;
+  }
+}
 
 </style>
 <!-- Nút mở form -->

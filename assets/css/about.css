@@ -186,3 +186,129 @@ body {
       display: block;
     }
     }
+    /* Mobile First Responsive Design */
+
+/* Base styles - Mobile (< 768px) */
+.container {
+  padding: 10px;
+  max-width: 100%;
+}
+
+.highlight {
+  padding: 15px;
+  margin: 15px 0;
+}
+
+.full-width-img {
+  max-width: 100%;
+  height: auto;
+  margin: 20px 0;
+}
+
+.accordion {
+  margin: 20px 0;
+}
+
+.accordion-toggle {
+  padding: 15px;
+  font-size: 16px;
+  text-align: left;
+  width: 100%;
+}
+
+.accordion-content {
+  padding: 15px;
+}
+
+/* Team slider responsive */
+.team-slider {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Tablet styles (768px+) */
+@media (min-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+  
+  .highlight {
+    padding: 25px;
+    margin: 25px 0;
+  }
+  
+  .team-slider {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+
+/* Desktop styles (1024px+) */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+  
+  .team-slider {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Navigation buttons responsive */
+.top-button, .back-button, .menu-button {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.top-button {
+  bottom: 120px;
+  right: 20px;
+  background: #4a90e2;
+}
+
+.back-button {
+  bottom: 70px;
+  right: 20px;
+  background: #1e3d59;
+}
+
+.menu-button {
+  bottom: 20px;
+  right: 20px;
+  background: #4a90e2;
+}
+
+@media (min-width: 768px) {
+  .top-button, .back-button, .menu-button {
+    width: 60px;
+    height: 60px;
+    font-size: 18px;
+  }
+  
+  .top-button {
+    bottom: 140px;
+    right: 30px;
+  }
+  
+  .back-button {
+    bottom: 80px;
+    right: 30px;
+  }
+  
+  .menu-button {
+    bottom: 20px;
+    right: 30px;
+  }
+}

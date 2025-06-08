@@ -81,6 +81,10 @@ function setupPolicyDropdown() {
         }
     });
 }
+function toggleMobileMenu() {
+  const navMenu = document.getElementById('navMenu');
+  navMenu.classList.toggle('active');
+}
 
 // Khởi tạo khi DOM đã sẵn sàng
 document.addEventListener('DOMContentLoaded', function() {
