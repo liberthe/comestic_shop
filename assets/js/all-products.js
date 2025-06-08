@@ -1,7 +1,20 @@
 // File: assets/js/all-products.js
 
+// Di chuyển phần xử lý params lên đầu file, trước khi định nghĩa filteredProducts
+const params = new URLSearchParams(window.location.search);
+const categoryParam = params.get('category');
+const filterParam = params.get('filter');
+const sortParam = params.get('sort');
 
-let filteredProducts = [...products];
+// Khởi tạo filteredProducts dựa trên params
+let filteredProducts = [];
+if (filterParam === 'new') {
+    filteredProducts = products.filter(product => product.isNew);
+} else if (categoryParam) {
+    filteredProducts = products.filter(product => product.category === categoryParam);
+} else {
+    filteredProducts = [...products];
+}
 
 const perPage = 12; // Số sản phẩm mỗi trang
 let currentPage = 1;
@@ -184,50 +197,54 @@ function clearFilters() {
 
 // Event listeners
 document.addEventListener('DOMContentLoaded', function() {
-  renderProducts();
-  
-  // Category filters
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      this.classList.add('active');
-      filterByCategory(this.dataset.category);
+    // Nếu có sort param, set giá trị cho dropdown
+    if (sortParam) {
+        const sortSelect = document.getElementById('sort-select');
+        sortSelect.value = sortParam;
+        // Thực hiện sắp xếp
+        sortProducts(sortParam);
+    } else {
+        renderProducts();
+    }
+    updateCartCount();
+    
+    // Chỉ highlight category button khi không có filter=new
+    if (!filterParam) {
+        document.querySelector('.filter-btn[data-category="all"]').classList.add('active');
+    }
+    
+    // Category filters
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        filterByCategory(this.dataset.category);
+      });
     });
-  });
-  
-  // Price filters
-  document.querySelectorAll('.price-filter').forEach(btn => {
-    btn.addEventListener('click', function() {
-      document.querySelectorAll('.price-filter').forEach(b => b.classList.remove('active'));
-      this.classList.add('active');
-      filterByPrice(this.dataset.price);
+    
+    // Price filters
+    document.querySelectorAll('.price-filter').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.price-filter').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        filterByPrice(this.dataset.price);
+      });
     });
-  });
-  
-  // Rating filters
-  document.querySelectorAll('.rating-filter').forEach(btn => {
-    btn.addEventListener('click', function() {
-      document.querySelectorAll('.rating-filter').forEach(b => b.classList.remove('active'));
-      this.classList.add('active');
-      filterByRating(parseInt(this.dataset.rating));
+    
+    // Rating filters
+    document.querySelectorAll('.rating-filter').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.rating-filter').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        filterByRating(parseInt(this.dataset.rating));
+      });
     });
-  });
-  
-  // Sort select
-  document.getElementById('sort-select').addEventListener('change', function() {
-    sortProducts(this.value);
-  });
-  
-  // Set first category as active
-  document.querySelector('.filter-btn[data-category="all"]').classList.add('active');
+    
+    // Sort select
+    document.getElementById('sort-select').addEventListener('change', function() {
+      sortProducts(this.value);
+    });
 });
-
-// Lọc theo category từ URL nếu có
-const params = new URLSearchParams(window.location.search);
-const categoryParam = params.get('category');
-if (categoryParam) {
-  filteredProducts = products.filter(product => product.category === categoryParam);
-}
 
 // === Thêm vào giỏ hàng ===
 document.addEventListener("click", function (e) {
