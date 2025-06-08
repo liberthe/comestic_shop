@@ -37,11 +37,22 @@
   </div>
 
   <script>
-    // Xoá thông tin đăng nhập từ localStorage
-    localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem("loginPhone");
-    localStorage.removeItem("loginType");
-    localStorage.removeItem("loggedInUser");
+    // Xóa toàn bộ thông tin đăng nhập
+    localStorage.removeItem('user');
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('loginType');
+    localStorage.removeItem('loginPhone');
+    
+    // Cập nhật UI header nếu còn visible
+    if (window.updateMenu) {
+      window.updateMenu();
+    }
+
+    // Đảm bảo trang chủ sẽ load lại hoàn toàn
+    window.onunload = function() {
+      // Force reload trang chủ
+      window.localStorage.setItem('forceReload', 'true');
+    }
   </script>
 </body>
 </html>
