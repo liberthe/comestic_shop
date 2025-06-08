@@ -28,15 +28,49 @@ function initAccountMenu() {
 
     function updateMenu() {
         const isLoggedIn = checkLoginStatus();
-        console.log('Login status:', isLoggedIn); // Debug log
+        console.log('Login status:', isLoggedIn);
 
+        // Cập nhật UI dựa trên trạng thái đăng nhập
         if (isLoggedIn) {
-            loginItems.forEach(item => item.style.display = 'none');
-            loggedInItems.forEach(item => item.style.display = 'block');
-        } else {
             loginItems.forEach(item => item.style.display = 'block');
             loggedInItems.forEach(item => item.style.display = 'none');
+            
+            // Hiển thị thông tin người dùng
+            const user = JSON.parse(localStorage.getItem('user'));
+            const phoneDisplay = dropdownMenu.querySelector('.user-phone');
+            if (phoneDisplay && user) {
+                phoneDisplay.textContent = user.phone;
+            }
+        } else {
+            // Reset và hiển thị menu đăng nhập/đăng ký
+            loginItems.forEach(item => item.style.display = 'block');
+            loggedInItems.forEach(item => item.style.display = 'none');
+            
+            // Clear user info
+            const phoneDisplay = dropdownMenu.querySelector('.user-phone');
+            if (phoneDisplay) {
+                phoneDisplay.textContent = '';
+            }
         }
+    }
+
+    // Thêm listener cho nút đăng xuất
+    const logoutBtn = dropdownMenu.querySelector('a[href="/cosmetic_shop/account/logout.html"]');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Clear all auth data
+            localStorage.removeItem('user');
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('loginType');
+            localStorage.removeItem('loginPhone');
+            
+            // Update UI immediately
+            updateMenu();
+            
+            // Optional: Redirect to home page
+            window.location.href = '/cosmetic_shop/index.html';
+        });
     }
 
     // Thêm listener cho localStorage changes
