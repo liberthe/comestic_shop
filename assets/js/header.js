@@ -8,17 +8,28 @@ function updateCartCount() {
 
 // Quản lý menu Account
 function initAccountMenu() {
+    // Đợi elements được load
     const accountMenu = document.querySelector('.account');
     const dropdownMenu = document.querySelector('.dropdown-menu');
+    
+    if (!accountMenu || !dropdownMenu) {
+        console.log('Account menu elements not found');
+        return;
+    }
+
     const loginItems = dropdownMenu.querySelectorAll('a:not(.logged-in)');
     const loggedInItems = dropdownMenu.querySelectorAll('.logged-in');
 
     function checkLoginStatus() {
-        return JSON.parse(localStorage.getItem('user')) !== null;
+        const user = JSON.parse(localStorage.getItem('user'));
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        return user && isLoggedIn === 'true';
     }
 
     function updateMenu() {
         const isLoggedIn = checkLoginStatus();
+        console.log('Login status:', isLoggedIn); // Debug log
+
         if (isLoggedIn) {
             loginItems.forEach(item => item.style.display = 'none');
             loggedInItems.forEach(item => item.style.display = 'block');
@@ -28,38 +39,20 @@ function initAccountMenu() {
         }
     }
 
-    accountMenu.addEventListener('click', (e) => {
-        if (!e.target.closest('.dropdown-menu')) {
-            e.preventDefault();
-            dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
-        }
-    });
-
-    document.addEventListener('click', (e) => {
-        if (!accountMenu.contains(e.target)) {
-            dropdownMenu.style.display = 'none';
-        }
-    });
-
-    document.addEventListener('click', (e) => {
-        if (e.target.closest('a[href="/cosmetic_shop/account/logout.html"]')) {
-            e.preventDefault();
-            localStorage.removeItem('user');
-            localStorage.removeItem('isLoggedIn');
-            localStorage.removeItem('loginType');
-            localStorage.removeItem('loginPhone');
-            updateMenu();
-            dropdownMenu.style.display = 'none';
-            location.reload();
-        }
-    });
-
+    // Thêm listener cho localStorage changes
     window.addEventListener('storage', (e) => {
-        if (e.key === 'user') {
+        if (e.key === 'user' || e.key === 'isLoggedIn') {
+            console.log('Storage changed:', e.key);
             updateMenu();
         }
     });
 
+    // Update menu khi page load
+    document.addEventListener('DOMContentLoaded', () => {
+        updateMenu();
+    });
+
+    // Update menu ngay lập tức
     updateMenu();
 }
 
@@ -91,3 +84,32 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Export function cho các file khác sử dụng
 window.updateCartCount = updateCartCount;
+
+// Khởi tạo với retry mechanism
+function initWithRetry(maxAttempts = 3) {
+    let attempts = 0;
+    
+    function tryInit() {
+        if (attempts >= maxAttempts) {
+            console.error('Failed to initialize header after', maxAttempts, 'attempts');
+            return;
+        }
+        
+        try {
+            updateCartCount();
+            initAccountMenu();
+            setupPolicyDropdown();
+        } catch (e) {
+            console.log('Init attempt failed, retrying...', e);
+            attempts++;
+            setTimeout(tryInit, 500);
+        }
+    }
+    
+    tryInit();
+}
+
+// Start initialization
+document.addEventListener('DOMContentLoaded', () => {
+    initWithRetry();
+});
