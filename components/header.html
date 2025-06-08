@@ -64,10 +64,16 @@
       <div class="account">
         👤Account
         <div class="dropdown-menu">
-          <a href="/cosmetic_shop/account/login.html" class="dropdown-item">Đăng nhập</a>
-          <a href="/cosmetic_shop/account/register.html" class="dropdown-item">Đăng ký</a>
-          <a href="/cosmetic_shop/account/my-account.html" class="dropdown-item logged-in">Thông tin cá nhân</a>
-          <a href="/cosmetic_shop/account/logout.html" class="dropdown-item logged-in">Đăng xuất</a>
+          <!-- Items for logged out state -->
+          <a href="/cosmetic_shop/account/login.html" class="not-logged-in">Đăng nhập</a>
+          <a href="/cosmetic_shop/account/register.html" class="not-logged-in">Đăng ký</a>
+
+          <!-- Items for logged in state -->
+          <div class="logged-in">
+              <span class="user-phone"></span>
+              <a href="/cosmetic_shop/account/my-account.html">Thông tin tài khoản</a>
+              <a href="/cosmetic_shop/account/logout.html">Đăng xuất</a>
+          </div>
         </div>
       </div>
 
