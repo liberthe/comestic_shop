@@ -95,19 +95,19 @@
       <a href="/cosmetic_shop/blog/blog-list.html" class="hover:text-blue-600">BLOG</a>
       <a href="/cosmetic_shop/cart/checkout.html" class="hover:text-blue-600">ĐẶT HÀNG & THANH TOÁN</a>
       <!-- Dropdown Chính Sách -->
-      <div class="relative" id="policy-dropdown">
-        <button id="policy-btn" class="hover:text-blue-600 flex items-center focus:outline-none bg-transparent border-none p-0 m-0 font-inherit">
-          CHÍNH SÁCH
-          <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-        <div id="policy-menu" class="absolute left-0 mt-2 bg-white border border-gray-200 rounded shadow-lg z-20 min-w-[180px]" style="display: none;">
-          <a href="/cosmetic_shop/policies/bao-mat.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Chính sách bảo mật</a>
-          <a href="/cosmetic_shop/policies/dieu-khoan.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Điều khoản sử dụng</a>
-          <a href="/cosmetic_shop/policies/doi-tra.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Chính sách đổi trả</a>
-        </div>
-      </div>
+      <details class="relative group">
+  <summary class="hover:text-blue-600 flex items-center cursor-pointer select-none list-none outline-none bg-transparent border-none p-0 m-0 font-inherit">
+    CHÍNH SÁCH
+    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+    </svg>
+  </summary>
+  <div class="absolute left-0 mt-2 bg-white border border-gray-200 rounded shadow-lg z-20 min-w-[180px]">
+    <a href="/cosmetic_shop/policies/bao-mat.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Chính sách bảo mật</a>
+    <a href="/cosmetic_shop/policies/dieu-khoan.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Điều khoản sử dụng</a>
+    <a href="/cosmetic_shop/policies/doi-tra.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Chính sách đổi trả</a>
+  </div>
+</details>
       <a href="/cosmetic_shop/contact/contact_page.html" class="hover:text-blue-600">LIÊN HỆ</a>
     </div>
   </nav>
